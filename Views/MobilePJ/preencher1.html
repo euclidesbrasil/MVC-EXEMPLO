@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="ISO-8859-1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="style.css" rel="stylesheet">
+
+    <title>Cadastro Pessoa Jurídica - NEL Mobile</title>
+</head>
+
+<body>
+    <header id="titulos">
+        <h1>Atualizar Cadastro de Pessoa Jurídica</h1>
+    </header>
+
+    <section id="conteudo">
+        <!-- Início do conteudo -->
+        <h2>Dados do Cliente</h2>
+        <table class="table row">
+           
+            <tr>
+                <th><label>Nome Fantasia</label></th>
+                <td><input type="text" value="" /></td>
+            </tr>
+            <tr>
+                <th><label>Data de Constituição</label></th>
+                <td><input type="date" value="" /></td>
+            </tr>
+            <tr>
+                <th><label>Telefone</label></th>
+                <td><input type="number" value="" /></td>
+            </tr>
+            <tr>
+                <th><label>Email</label></th>
+                <td><input type="text" value="" /></td>
+            </tr>
+            <tr>
+                <th>Situação Operacional</th>
+                <td>
+                    <select>
+                        <option value="1">Em implantação</option>
+                        <option value="2">Em Funcionamento</option>
+                        <option value="3">Holding</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Nº de Empregados</th>
+                <td><input type="number" value="" /></td>
+            </tr>
+            <tr>
+                <th>Participa de Grupo Econômico? </th>
+                <td class="radio-right">
+                    <input type="radio" value="1" name="tipoconta" id="contacorrente">
+                    <label for="contacorrente">Sim</label><br>
+                    <input type="radio" value="1" name="tipoconta" id="poupanca">
+                    <label for="poupanca">Não</label>
+                </td>
+            </tr>
+            <tr>
+                <th><h2>Dados do Controlador</h2></th>
+                <td></td>
+            </tr>
+            <tr>
+                <th><label>Nome</label></th>
+                <td><input type="text" value="" /></td>
+            </tr>
+            <tr>
+                <th><label>CNPJ</label></th>
+                <td><input type="number" value="" /></td>
+            </tr>
+        </table>
+        <div id="voltar">
+            <a class="btn btn-vermelho row" href="#">Voltar</a>
+            <a class="btn btn-vermelho pull-right" href="preencher2.html">&nbsp;&nbsp;Continuar&nbsp;&nbsp;</a>
+        </div>
+        
+        <!-- Final do conteudo -->
+    </section>
+
+
+    <script type="text/javascript" charset="utf-8" src="http://d001nee01/InternetBankingpo/mobile20/js/scripts.min.js"></script>
+
+</body>
+</html>

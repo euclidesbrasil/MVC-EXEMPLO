@@ -1,0 +1,74 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="ISO-8859-1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link href="style.css" rel="stylesheet">
+
+    <title>
+        Atualizar Cadastro de Pessoa Física - Dados pessoais -
+        NEL Mobile
+    </title>
+</head>
+
+<body class="">
+
+    <header id="titulos">
+
+        <h1>
+            Atualizar Cadastro de Pessoa Física
+        </h1>
+        <h2>Dados pessoais</h2>
+    </header>
+
+    <section id="conteudo">
+        <!-- Início do conteudo -->
+        <div id="DFormulario" class="target target-visible">
+            <form role="form" name="Frm" id="Frm" class="form-block" action="cad_cnt_dig_03_m.asp" method="post" onsubmit="saveData()">
+                <table class="table table-form">
+                    <tr>
+                        <th><label for="Cic">CPF</label></th>
+                        <td><input type="tel" class="input-cpf" id="Cic" name="Cic" /></td>
+                    </tr>
+                    <tr>
+                        <th><label for="Nome">Nome completo</label></th>
+                        <td><input type="text" class="uppercase" maxlength="40" id="Nome" name="Nome" /></td>
+                    <tr>
+                        <th><label for="Sexo">Sexo</label></th>
+                        <td class="radio-right">
+                            <input type="radio" value="Masculino" name="Sexo" id="SexoMasculino" /><label for="SexoMasculino">Masculino</label><br /><input type="radio" value="Feminino" name="Sexo" id="SexoFeminino" /><label for="SexoFeminino">Feminino</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><label for="DataNascimento">Data de nascimento</label></th>
+                        <td><input type="text" class="input-data" id="DataNascimento" name="DataNascimento" /></td>
+                    </tr>
+                    </tr>
+                    <tr>
+                        <th><label for="NomeMae">Nome da mãe</label></th>
+                        <td><input type="text" class="uppercase" maxlength="40" id="NomeMae" name="NomeMae" /></td>
+                    </tr>
+                </table>
+                <footer>
+                    <a type="submit" class="btn btn-avancar" href="preencher2.html">
+                        Continuar
+                    </a>
+                </footer>
+
+            </form>
+        </div>
+        <!-- Final da #DFormulario -->
+        <!-- Final do conteudo -->
+    </section>
+
+    <script type="text/javascript" charset="utf-8" src="js/scripts.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/cad_cnt_dig_02_m.min.js"></script>
+
+</body>
+</html>

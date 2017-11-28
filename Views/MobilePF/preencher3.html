@@ -1,0 +1,1010 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="ISO-8859-1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link href="style.css" rel="stylesheet">
+
+    <title>
+        Atualizar Cadastro de Pessoa Física - Dados pessoais -
+        NEL Mobile
+    </title>
+</head>
+
+<body class="">
+
+    <header id="titulos">
+
+        <h1>
+            Atualizar Cadastro de Pessoa Física
+        </h1>
+        <h2>Dados pessoais</h2>
+    </header>
+
+    <section id="conteudo">
+        <!-- In?cio do conteudo -->
+        <div id="DFormulario" class="target target-visible">
+            <form role="form" name="Frm" id="Frm" class="form-block" action="cad_cnt_dig_05_m.asp" method="post" onsubmit="saveData()">
+                <table class="table table-form">
+                    <tr>
+                        <th><label for="PaisNascimento">Pa&iacute;s de nascimento</label></th>
+                        <td>
+                            <span class="input-group">
+                                <input type="text" id="PaisNascimento" name="PaisNascimento" readonly="readonly" onclick="javascript:fnClickSelecionar('pesquisaPais','listaPais','#DSelecaoPais','PaisNascimento')" value="" />
+                                <input type="hidden" id="CodigoPaisNascimento" name="CodigoPaisNascimento" value="6" />
+                                <span class="input-group-btn" onclick="javascript:fnClickSelecionar('pesquisaPais','listaPais','#DSelecaoPais','PaisNascimento')">
+                                    <a class="btn btn-default btn-busca">&nbsp;</a>
+                                </span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="row brasil" id="UFNascimentoTR" name="UFNascimentoTR">
+                        <th><label for="UFNascimento">UF</label></th>
+                        <td>
+                            <span class="input-group">
+                                <input type="text" id="UFNascimento" name="UFNascimento" readonly="readonly" onclick="javascript:location.hash='#DSelecaoUF'" value="" />
+                                <input type="hidden" id="CodigoUFNascimento" name="CodigoUFNascimento" value="" />
+                                <span class="input-group-btn" onclick="javascript:bnb.busca.input=document.getElementById('UFNascimento');location.hash='#DSelecaoUF'">
+                                    <a class="btn btn-default btn-busca">&nbsp;</a>
+                                </span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="row brasil" id="MunicipioNascimentoTR" name="MunicipioNascimentoTR">
+                        <th><label for="MunicipioNascimento">Munic&iacute;pio</label></th>
+                        <td>
+                            <span class="input-group">
+                                <input type="text" id="MunicipioNascimento" name="MunicipioNascimento" readonly="readonly" onclick="javascript:fnClickSelecionar('pesquisaMunicipio','listaMunicipio','#DSelecaoMunicipio','MunicipioNascimento')" value="" />
+                                <input type="hidden" id="CodigoMunicipioNascimento" name="CodigoMunicipioNascimento" value="" />
+                                <span class="input-group-btn" onclick="javascript:fnClickSelecionar('pesquisaMunicipio','listaMunicipio','#DSelecaoMunicipio','MunicipioNascimento')">
+                                    <a class="btn btn-default btn-busca">&nbsp;</a>
+                                </span>
+                            </span>
+                            <!--span class="input-group">
+                                <input type="text" id="MunicipioNascimento" name="MunicipioNascimento" readonly="readonly" onclick="javascript:fnBuscarCidade('', 'asp');" value="" />
+                                <input type="hidden" id="CodigoMunicipioNascimento" name="CodigoMunicipioNascimento" value="" />
+                                <span class="input-group-btn" onclick="javascript:fnBuscarCidade('', 'asp');">
+                                    <a class="btn btn-default btn-busca">&nbsp;</a>
+                                </span>
+                            </span-->
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><label for="residenciaFiscal">Possui m&uacute;ltipla cidadania ou resid&ecirc;ncia fiscal em outro pa&iacute;s?</label></th>
+                        <td class="radio-right">
+                            <input type="radio" value="S" name="residenciaFiscal" id="residenciaFiscalSim" /><label for="residenciaFiscalSim">Sim</label><br /><input type="radio" value="N" name="residenciaFiscal" id="residenciaFiscalNao" /><label for="residenciaFiscalNao">N&atilde;o</label>
+                        </td>
+                    </tr>
+                    <tr class="row residenciaFiscal" id="PaisResidenciaFiscalTR" name="PaisResidenciaFiscalTR">
+                        <th><label for="PaisResidenciaFiscal">Qual &eacute; o pa&iacute;s?</label></th>
+                        <td>
+                            <span class="input-group">
+                                <input type="text" id="PaisResidenciaFiscal" name="PaisResidenciaFiscal" readonly="readonly" onclick="javascript:fnClickSelecionar('pesquisaPais','listaPais','#DSelecaoPais','PaisResidenciaFiscal')" value="BRASIL" />
+                                <input type="hidden" id="CodigoPaisResidenciaFiscal" name="CodigoPaisResidenciaFiscal" value="6" />
+                                <span class="input-group-btn" onclick="javascript:fnClickSelecionar('pesquisaPais','listaPais','#DSelecaoPais','PaisResidenciaFiscal')">
+                                    <a class="btn btn-default btn-busca">&nbsp;</a>
+                                </span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="row eua residenciaFiscal" id="GreenCardTR" name="GreenCardTR">
+                        <th><label for="greenCard">Possui Green Card?</label></th>
+                        <td class="radio-right">
+                            <input type="radio" value="S" name="greenCard" id="greenCardSim" /><label for="greenCardSim">Sim</label><br /><input type="radio" value="N" name="greenCard" id="greenCardNao" /><label for="greenCardNao">N&atilde;o</label>
+                        </td>
+                    </tr>
+                    <tr class="row residenciaFiscal" id="DocumentoFiscalTR" name="DocumentoFiscalTR">
+                        <th><label for="DocumentoFiscal">N&uacute;mero do documento fiscal</label></th>
+                        <td><input type="text" class="uppercase" maxlength="40" id="DocumentoFiscal" name="DocumentoFiscal" value="" /></td>
+                    </tr>
+                    <tr class="row residenciaFiscal" id="NaturalizadoTR" name="NaturalizadoTR">
+                        <th><label for="naturalizado">Naturalizado?</label></th>
+                        <td class="radio-right">
+                            <input type="radio" value="S" name="naturalizado" id="naturalizadoSim" /><label for="naturalizadoSim">Sim</label><br /><input type="radio" value="N" name="naturalizado" id="naturalizadoNao" /><label for="naturalizadoNao">N&atilde;o</label>
+                        </td>
+                    </tr>
+
+                </table>
+                <footer>
+                    <a type="submit" class="btn btn-avancar" href="preencher4.html">
+                        Continuar
+                    </a>
+                </footer>
+
+            </form>
+        </div>
+        <!-- Final da #DFormulario -->
+        <!-- Final do conteudo -->
+        <!-- Inicio do conteudo Paises-->
+
+        <div id="DSelecaoPais" class="target">
+            <p>Selecione o pa&iacute;s</p>
+            <p><input type="search" id="pesquisaPais" placeholder="Pa&iacute;s" /></p>
+
+            <div class="btn-menu-set" id="listaPais">
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(39,'AFEGANISTAO');">AFEGANISTAO</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(40,'AFRICA DO SUL');">AFRICA DO SUL</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(41,'ALBANIA');">ALBANIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(1,'ALEMANHA');">ALEMANHA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(42,'ANDORRA');">ANDORRA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(38,'ANGOLA');">ANGOLA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(43,'ANTIGUA E BARBU');">ANTIGUA E BARBU</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(44,'ARABIA SAUDITA');">ARABIA SAUDITA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(45,'ARGELIA');">ARGELIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(2,'ARGENTINA');">ARGENTINA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(46,'ARMENIA');">ARMENIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(35,'AUSTRALIA');">AUSTRALIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(3,'AUSTRIA');">AUSTRIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(47,'AZERBAIJAO');">AZERBAIJAO</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(48,'BAHAMAS');">BAHAMAS</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(49,'BAHREIN');">BAHREIN</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(50,'BANGLADESH');">BANGLADESH</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(51,'BARBADOS');">BARBADOS</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(55,'BELAURUS');">BELAURUS</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(4,'BELGICA');">BELGICA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(52,'BELIZE');">BELIZE</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(53,'BENIM');">BENIM</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(54,'BERMUDAS');">BERMUDAS</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(5,'BOLIVIA');">BOLIVIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(56,'BOSNIA E HERZEG');">BOSNIA E HERZEG</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(57,'BOTSUANA');">BOTSUANA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(6,'BRASIL');">BRASIL</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(58,'BRUNEI');">BRUNEI</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(59,'BULGARIA');">BULGARIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(60,'BURKINA FASSO');">BURKINA FASSO</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(61,'BURUNDI');">BURUNDI</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(62,'BUTAO');">BUTAO</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(32,'CABO VERDE');">CABO VERDE</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(63,'CAMARÕES');">CAMARÕES</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(64,'CAMBOJA');">CAMBOJA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(7,'CANADA');">CANADA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(65,'CATAR');">CATAR</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(66,'CAZAQUISTAO');">CAZAQUISTAO</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(67,'CHADE');">CHADE</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(8,'CHILE');">CHILE</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(27,'CHINA');">CHINA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(68,'CHIPRE');">CHIPRE</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(69,'CINGAPURA');">CINGAPURA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(70,'COLOMBIA');">COLOMBIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(71,'COMORES');">COMORES</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(72,'CONGO');">CONGO</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(10,'COREA');">COREA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(74,'COREIA DO NORTE');">COREIA DO NORTE</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(75,'COREIA DO SUL');">COREIA DO SUL</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(76,'COSTA DO MARFIM');">COSTA DO MARFIM</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(77,'COSTA RICA');">COSTA RICA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(78,'CROACIA');">CROACIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(34,'CUBA');">CUBA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(36,'DINAMARCA');">DINAMARCA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(79,'DJIBUTI');">DJIBUTI</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(80,'EGITO');">EGITO</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(81,'EL SALVADOR');">EL SALVADOR</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(82,'EMIR. ARABES UN');">EMIR. ARABES UN</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(31,'EQUADOR');">EQUADOR</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(83,'ERITREIA');">ERITREIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(84,'ESLOVAQUIA');">ESLOVAQUIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(85,'ESLOVENIA');">ESLOVENIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(11,'ESPANHA');">ESPANHA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(12,'ESTADOS UNIDOS');">ESTADOS UNIDOS</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(86,'ESTONIA');">ESTONIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(87,'ETIOPIA');">ETIOPIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(88,'FIJI');">FIJI</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(89,'FILIPINAS');">FILIPINAS</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(90,'FINLANDIA');">FINLANDIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(13,'FRANCA');">FRANCA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(91,'GABAO');">GABAO</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(92,'GAMBIA');">GAMBIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(93,'GANA');">GANA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(94,'GEORGIA');">GEORGIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(95,'GRANADA');">GRANADA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(96,'GRECIA');">GRECIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(97,'GROENLANDIA');">GROENLANDIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(98,'GUATEMALA');">GUATEMALA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(99,'GUIANA');">GUIANA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(100,'GUIANA FRANCESA');">GUIANA FRANCESA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(101,'GUINE');">GUINE</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(103,'GUINE EQUATORIA');">GUINE EQUATORIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(102,'GUINE-BISSAU');">GUINE-BISSAU</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(104,'HAITI');">HAITI</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(14,'HOLANDA');">HOLANDA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(105,'HONDURAS');">HONDURAS</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(106,'HUNGRIA');">HUNGRIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(107,'IEMEN');">IEMEN</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(108,'ILHAS MARSHALL');">ILHAS MARSHALL</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(109,'ILHAS SALOMAO');">ILHAS SALOMAO</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(110,'INDIA');">INDIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(111,'INDONESIA');">INDONESIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(15,'INGLATERRA');">INGLATERRA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(112,'IRA');">IRA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(113,'IRAQUE');">IRAQUE</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(114,'IRLANDA');">IRLANDA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(115,'ISLANDIA');">ISLANDIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(28,'ISRAEL');">ISRAEL</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(16,'ITALIA');">ITALIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(116,'JAMAICA');">JAMAICA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(17,'JAPAO');">JAPAO</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(117,'JORDANIA');">JORDANIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(118,'KIRIBATI');">KIRIBATI</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(119,'KOSSOVO');">KOSSOVO</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(120,'KUWAIT');">KUWAIT</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(121,'LAOS');">LAOS</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(122,'LESOTO');">LESOTO</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(123,'LETONIA');">LETONIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(124,'LIBANO');">LIBANO</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(125,'LIBERIA');">LIBERIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(126,'LIBIA');">LIBIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(127,'LIECHTENSTEIN');">LIECHTENSTEIN</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(128,'LITUANIA');">LITUANIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(129,'LUXEMBURGO');">LUXEMBURGO</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(130,'MACEDONIA');">MACEDONIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(131,'MADAGASCAR');">MADAGASCAR</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(132,'MALASIA');">MALASIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(133,'MALAWI');">MALAWI</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(134,'MALDIVAS');">MALDIVAS</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(135,'MALI');">MALI</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(136,'MALTA');">MALTA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(137,'MARROCOS');">MARROCOS</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(138,'MAURICIO');">MAURICIO</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(139,'MAURITANIA');">MAURITANIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(140,'MEXICO');">MEXICO</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(141,'MIANMAR');">MIANMAR</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(37,'MOCAMBIQUE');">MOCAMBIQUE</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(142,'MOLDAVIA');">MOLDAVIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(143,'MONACO');">MONACO</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(144,'MONGOLIA');">MONGOLIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(145,'MONTENEGRO');">MONTENEGRO</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(146,'NAMIBIA');">NAMIBIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(18,'NATURALIZADO');">NATURALIZADO</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(147,'NAURU');">NAURU</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(148,'NEPAL');">NEPAL</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(149,'NICARAGUA');">NICARAGUA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(150,'NIGER');">NIGER</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(151,'NIGERIA');">NIGERIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(152,'NORUEGA');">NORUEGA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(153,'NOVA ZELANDIA');">NOVA ZELANDIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(154,'OMA');">OMA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(19,'OUTR LAT AM');">OUTR LAT AM</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(20,'OUTROS');">OUTROS</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(21,'OUTROS ASIAT');">OUTROS ASIAT</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(155,'PALAU');">PALAU</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(33,'PANAMA');">PANAMA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(156,'PAPUA-NOVA GUIN');">PAPUA-NOVA GUIN</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(157,'PAQUISTAO');">PAQUISTAO</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(22,'PARAGUAI');">PARAGUAI</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(158,'PERU');">PERU</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(30,'POLONIA');">POLONIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(159,'PORTO RICO');">PORTO RICO</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(23,'PORTUGAL');">PORTUGAL</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(160,'QUENIA');">QUENIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(161,'QUIRGUISTAO');">QUIRGUISTAO</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(162,'REINO UNIDO');">REINO UNIDO</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(163,'REP CENT AFRICA');">REP CENT AFRICA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(164,'REP DOMINICANA');">REP DOMINICANA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(165,'REP TCHECA');">REP TCHECA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(73,'REP. DEM. CONGO');">REP. DEM. CONGO</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(29,'REP.DO PANAMA');">REP.DO PANAMA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(166,'ROMENIA');">ROMENIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(167,'RUANDA');">RUANDA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(168,'RUSSIA');">RUSSIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(169,'SAMOA');">SAMOA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(170,'SAN MARINO');">SAN MARINO</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(171,'SANTA LUCIA');">SANTA LUCIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(172,'SAO CRISTOVAO N');">SAO CRISTOVAO N</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(173,'SAO TOME E PRIN');">SAO TOME E PRIN</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(174,'SAO VICENTE E G');">SAO VICENTE E G</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(175,'SEICHELES');">SEICHELES</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(176,'SENEGAL');">SENEGAL</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(177,'SERRA LEOA');">SERRA LEOA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(178,'SERVIA');">SERVIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(179,'SIRIA');">SIRIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(180,'SOMALIA');">SOMALIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(181,'SRI LANKA');">SRI LANKA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(182,'SUAZILANDIA');">SUAZILANDIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(183,'SUDAO');">SUDAO</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(24,'SUECIA');">SUECIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(25,'SUICA');">SUICA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(184,'SURINAME');">SURINAME</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(185,'TADJIQUISTAO');">TADJIQUISTAO</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(186,'TAILANDIA');">TAILANDIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(187,'TAIWAN');">TAIWAN</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(188,'TANZANIA');">TANZANIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(189,'TIMOR-LESTE');">TIMOR-LESTE</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(190,'TOGO');">TOGO</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(191,'TONGA');">TONGA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(192,'TRINIDAD E TOBA');">TRINIDAD E TOBA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(193,'TUNISIA');">TUNISIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(194,'TURCOMENISTAO');">TURCOMENISTAO</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(195,'TURQUIA');">TURQUIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(196,'TUVALU');">TUVALU</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(197,'UCRANIA');">UCRANIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(198,'UGANDA');">UGANDA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(26,'URUGUAI');">URUGUAI</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(199,'UZBEQUISTAO');">UZBEQUISTAO</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(200,'VANUATU');">VANUATU</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(201,'VATICANO');">VATICANO</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(202,'VENEZUELA');">VENEZUELA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(203,'VIETNA');">VIETNA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(204,'ZAMBIA');">ZAMBIA</a>
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarPais(205,'ZIMBABUE');">ZIMBABUE</a>
+            </div>
+        </div>
+
+        <!-- Final do conteudo Paises-->
+        <!-- Inicio do conteudo UF-->
+
+        <div id="DSelecaoUF" class="target">
+            <p>Selecione a UF</p>
+            <p><input type="search" id="pesquisa" placeholder="Estado" /></p>
+
+            <div class="btn-menu-set" id="lista">
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(12,'AC - ACRE');">AC - ACRE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(27,'AL - ALAGOAS');">AL - ALAGOAS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(16,'AP - AMAPA');">AP - AMAPA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(13,'AM - AMAZONAS');">AM - AMAZONAS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(29,'BA - BAHIA');">BA - BAHIA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(23,'CE - CEARA');">CE - CEARA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(53,'DF - DISTRITO FEDERAL');">DF - DISTRITO FEDERAL</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(32,'ES - ESPIRITO SANTO');">ES - ESPIRITO SANTO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(52,'GO - GOIAS');">GO - GOIAS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(21,'MA - MARANHAO');">MA - MARANHAO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(51,'MT - MATO GROSSO');">MT - MATO GROSSO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(50,'MS - MATO GROSSO DO SUL');">MS - MATO GROSSO DO SUL</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(31,'MG - MINAS GERAIS');">MG - MINAS GERAIS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(15,'PA - PARA');">PA - PARA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(25,'PB - PARAIBA');">PB - PARAIBA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(41,'PR - PARANA');">PR - PARANA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(26,'PE - PERNAMBUCO');">PE - PERNAMBUCO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(22,'PI - PIAUI');">PI - PIAUI</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(33,'RJ - RIO DE JANEIRO');">RJ - RIO DE JANEIRO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(24,'RN - RIO GRANDE DO NORTE');">RN - RIO GRANDE DO NORTE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(43,'RS - RIO GRANDE DO SUL');">RS - RIO GRANDE DO SUL</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(11,'RO - RONDONIA');">RO - RONDONIA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(14,'RR - RORAIMA');">RR - RORAIMA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(42,'SC - SANTA CATARINA');">SC - SANTA CATARINA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(35,'SP - SAO PAULO');">SP - SAO PAULO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(28,'SE - SERGIPE');">SE - SERGIPE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(17,'TO - TOCANTINS');">TO - TOCANTINS</a>
+
+            </div>
+
+        </div>
+
+        <!-- Final do conteudo UF-->
+        <!-- Inicio do conteudo Município-->
+
+        <div id="DSelecaoMunicipio" class="target">
+            <p>Selecione o munic&iacute;pio de nascimento</p>
+            <p><input type="search" id="pesquisaMunicipio" placeholder="Munic&iacute;pio" /></p>
+
+            <div class="btn-menu-set" id="listaMunicipio">
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(558,'ABAIARA');">ABAIARA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4337,'ACARAPE');">ACARAPE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2903,'ACARAU');">ACARAU</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(790,'ACOPIARA');">ACOPIARA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3432,'AIUABA');">AIUABA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1237,'ALCANTARAS');">ALCANTARAS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3908,'ALTANEIRA');">ALTANEIRA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1685,'ALTO SANTO');">ALTO SANTO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4236,'AMONTADA');">AMONTADA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(612,'ANTONINA DO NORTE');">ANTONINA DO NORTE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2214,'APUIARES');">APUIARES</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(923,'AQUIRAZ');">AQUIRAZ</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2672,'ARACATI');">ARACATI</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1334,'ARACOIABA');">ARACOIABA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(5104,'ARARENDA');">ARARENDA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3117,'ARARIPE');">ARARIPE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1790,'ARATUBA');">ARATUBA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3570,'ARNEIROZ');">ARNEIROZ</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2253,'ASSARE');">ASSARE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4061,'AURORA');">AURORA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2375,'BAIXIO');">BAIXIO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4338,'BANABUIU');">BANABUIU</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(165,'BARBALHA');">BARBALHA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4484,'BARREIRA');">BARREIRA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2805,'BARRO');">BARRO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4485,'BARROQUINHA');">BARROQUINHA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(725,'BATURITE');">BATURITE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3383,'BEBERIBE');">BEBERIBE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1159,'BELA CRUZ');">BELA CRUZ</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3974,'BOA VIAGEM');">BOA VIAGEM</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1786,'BREJO SANTO');">BREJO SANTO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(516,'CAMOCIM');">CAMOCIM</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1921,'CAMPOS SALES');">CAMPOS SALES</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(722,'CANINDE');">CANINDE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2367,'CAPISTRANO');">CAPISTRANO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1039,'CARIDADE');">CARIDADE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2807,'CARIRE');">CARIRE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1485,'CARIRIACU');">CARIRIACU</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3259,'CARIUS');">CARIUS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1914,'CARNAUBAL');">CARNAUBAL</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3701,'CASCAVEL');">CASCAVEL</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2365,'CATARINA');">CATARINA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(5105,'CATUNDA');">CATUNDA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(155,'CAUCAIA');">CAUCAIA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2928,'CEDRO');">CEDRO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(830,'CHAVAL');">CHAVAL</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(5106,'CHORO');">CHORO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4339,'CHOROZINHO');">CHOROZINHO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(50538,'COMUNIDADE LOCAL');">COMUNIDADE LOCAL</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1274,'COREAU');">COREAU</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1780,'CRATEUS');">CRATEUS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(638,'CRATO');">CRATO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4486,'CROATA');">CROATA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4242,'CRUZ');">CRUZ</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4487,'DEPUTADO IRAPUAN PINHEIRO');">DEPUTADO IRAPUAN PINHEIRO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4340,'ERERE');">ERERE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4341,'EUSEBIO');">EUSEBIO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(50539,'EXTERIOR');">EXTERIOR</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1462,'FARIAS BRITO');">FARIAS BRITO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4235,'FORQUILHA');">FORQUILHA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3486,'FORTALEZA');">FORTALEZA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(5111,'FORTIM');">FORTIM</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2232,'FRECHEIRINHA');">FRECHEIRINHA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(811,'GENERAL SAMPAIO');">GENERAL SAMPAIO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4342,'GRACA');">GRACA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2679,'GRANJA');">GRANJA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1342,'GRANJEIRO');">GRANJEIRO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3122,'GROAIRAS');">GROAIRAS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4343,'GUAIUBA');">GUAIUBA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1842,'GUARACIABA DO NORTE');">GUARACIABA DO NORTE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3631,'GUARAMIRANGA');">GUARAMIRANGA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2096,'HIDROLANDIA');">HIDROLANDIA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4344,'HORIZONTE');">HORIZONTE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4631,'IBARETAMA');">IBARETAMA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3805,'IBIAPINA');">IBIAPINA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4489,'IBICUITINGA');">IBICUITINGA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4245,'ICAPUI');">ICAPUI</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2465,'ICO');">ICO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(272,'IGUATU');">IGUATU</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3021,'INDEPENDENCIA');">INDEPENDENCIA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4345,'IPAPORANGA');">IPAPORANGA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(920,'IPAUMIRIM');">IPAUMIRIM</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3548,'IPU');">IPU</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1315,'IPUEIRAS');">IPUEIRAS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4025,'IRACEMA');">IRACEMA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1794,'IRAUCUBA');">IRAUCUBA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(450,'ITAICABA');">ITAICABA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(5110,'ITAITINGA');">ITAITINGA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2269,'ITAPAGE');">ITAPAGE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(958,'ITAPIPOCA');">ITAPIPOCA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2704,'ITAPIUNA');">ITAPIUNA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4233,'ITAREMA');">ITAREMA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1374,'ITATIRA');">ITATIRA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2861,'JAGUARETAMA');">JAGUARETAMA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1531,'JAGUARIBARA');">JAGUARIBARA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3310,'JAGUARIBE');">JAGUARIBE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1974,'JAGUARUANA');">JAGUARUANA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3758,'JARDIM');">JARDIM</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2405,'JATI');">JATI</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(5551,'JIJOCA DE JERICOACOARA');">JIJOCA DE JERICOACOARA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(484,'JUAZEIRO DO NORTE');">JUAZEIRO DO NORTE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3178,'JUCAS');">JUCAS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(757,'LAVRAS DA MANGABEIRA');">LAVRAS DA MANGABEIRA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3439,'LIMOEIRO DO NORTE');">LIMOEIRO DO NORTE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4346,'MADALENA');">MADALENA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4266,'MARACANAU');">MARACANAU</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1089,'MARANGUAPE');">MARANGUAPE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3760,'MARCO');">MARCO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1538,'MARTINOPOLE');">MARTINOPOLE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(202,'MASSAPE');">MASSAPE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1976,'MAURITI');">MAURITI</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(815,'MERUOCA');">MERUOCA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2536,'MILAGRES');">MILAGRES</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4239,'MILHA');">MILHA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4490,'MIRAIMA');">MIRAIMA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1223,'MISSAO VELHA');">MISSAO VELHA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3079,'MOMBACA');">MOMBACA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1758,'MONSENHOR TABOSA');">MONSENHOR TABOSA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3533,'MORADA NOVA');">MORADA NOVA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2202,'MORAUJO');">MORAUJO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3988,'MORRINHOS');">MORRINHOS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2728,'MUCAMBO');">MUCAMBO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(488,'MULUNGU');">MULUNGU</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3078,'NOVA OLINDA');">NOVA OLINDA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(909,'NOVA RUSSAS');">NOVA RUSSAS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3531,'NOVO ORIENTE');">NOVO ORIENTE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4347,'OCARA');">OCARA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1348,'OROS');">OROS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3775,'PACAJUS');">PACAJUS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1558,'PACATUBA');">PACATUBA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(227,'PACOTI');">PACOTI</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1992,'PACUJA');">PACUJA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(763,'PALHANO');">PALHANO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2420,'PALMACIA');">PALMACIA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1100,'PARACURU');">PARACURU</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4238,'PARAIPABA');">PARAIPABA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2878,'PARAMBU');">PARAMBU</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1569,'PARAMOTI');">PARAMOTI</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3404,'PEDRA BRANCA');">PEDRA BRANCA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2062,'PENAFORTE');">PENAFORTE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3844,'PENTECOSTE');">PENTECOSTE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2496,'PEREIRO');">PEREIRO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4348,'PINDORETAMA');">PINDORETAMA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(317,'PIQUET CARNEIRO');">PIQUET CARNEIRO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4349,'PIRES FERREIRA');">PIRES FERREIRA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3088,'PORANGA');">PORANGA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(913,'PORTEIRAS');">PORTEIRAS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3543,'POTENGI');">POTENGI</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4350,'POTIRETAMA');">POTIRETAMA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4351,'QUITERIANOPOLIS');">QUITERIANOPOLIS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1410,'QUIXADA');">QUIXADA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4247,'QUIXELO');">QUIXELO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4071,'QUIXERAMOBIM');">QUIXERAMOBIM</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1850,'QUIXERE');">QUIXERE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(268,'REDENCAO');">REDENCAO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2065,'RERIUTABA');">RERIUTABA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(984,'RUSSAS');">RUSSAS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2445,'SABOEIRO');">SABOEIRO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4463,'SALITRE');">SALITRE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1560,'SANTA QUITERIA');">SANTA QUITERIA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1117,'SANTANA DO ACARAU');">SANTANA DO ACARAU</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2885,'SANTANA DO CARIRI');">SANTANA DO CARIRI</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3348,'SAO BENEDITO');">SAO BENEDITO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1861,'SAO GONCALO DO AMARANTE');">SAO GONCALO DO AMARANTE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3654,'SAO JOAO DO JAGUARIBE');">SAO JOAO DO JAGUARIBE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2312,'SAO LUIS DO CURU');">SAO LUIS DO CURU</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(246,'SENADOR POMPEU');">SENADOR POMPEU</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2910,'SENADOR SA');">SENADOR SA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(872,'SOBRAL');">SOBRAL</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3481,'SOLONOPOLE');">SOLONOPOLE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(994,'TABULEIRO DO NORTE');">TABULEIRO DO NORTE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3656,'TAMBORIL');">TAMBORIL</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4352,'TARRAFAS');">TARRAFAS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1415,'TAUA');">TAUA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4353,'TEJUCUOCA');">TEJUCUOCA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(278,'TIANGUA');">TIANGUA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(926,'TRAIRI');">TRAIRI</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4354,'TURURU');">TURURU</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1135,'UBAJARA');">UBAJARA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1693,'UMARI');">UMARI</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4234,'UMIRIM');">UMIRIM</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2218,'URUBURETAMA');">URUBURETAMA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2652,'URUOCA');">URUOCA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4237,'VARJOTA');">VARJOTA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2753,'VARZEA ALEGRE');">VARZEA ALEGRE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3422,'VICOSA DO CEARA');">VICOSA DO CEARA</a>
+
+            </div>
+        </div>
+
+        <!-- Final do conteudo Município-->
+
+    </section>
+
+    <script type="text/javascript" charset="utf-8" src="js/scripts.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/cad_cnt_dig_04_m.min.js"></script>
+
+</body>
+</html>

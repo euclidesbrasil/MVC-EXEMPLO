@@ -1,0 +1,141 @@
+/*
+@Arquivo: estilo_mozilla.css
+@Descricao: Folha de estilo principal do sistema compatível com o Mozila Firefox 2.0 ou versão superior
+@Requerimentos: Mozila Firefox 2.0
+@Atualizacoes:
+...Data de Atualiz.:		Responsável:				Necessidade de Atualização
+...12/12/2008			Thiago Silveira				Versão Inicial
+*/
+
+/********************************** Início: Estilos para área de trabalho **********************************/
+
+#ContainerExterno, #ContainerInterno
+{		 
+	position	      : relative;	 
+	top		          : 0px;	 
+	width		        : 100%;	 
+	padding-bottom	: 35px;		
+}
+
+#ConteudoExterno
+{		
+	text-align	: left;
+	font		: 12px "Lucida Sans", "Lucida Sans Unicode", verdana, arial, helvetica, sans-serif;
+	padding		: 10px 0px 10px 10px;
+}
+
+#ConteudoExterno table
+{
+	position	: fixed;
+}
+
+#ConteudoInterno 
+{
+	position	: relative;
+	left		: 141px;	
+	width		: 89%;
+	height		: 100%;
+	text-align	: left;
+	font-family	: 12px "Lucida Sans", "Lucida Sans Unicode", verdana, arial, helvetica, sans-serif;
+}
+
+#ConteudoPaginaInicial
+{
+	position	: relative;
+	margin		: 0px 0px 0px 0px;
+	width		: 87%;
+	left		: 0%;
+	top		: 0%;
+}
+/********************************** Fim: Estilos para área de trabalho **********************************/
+
+/* **************************** Início: Menu Lateral Esquerdo **************************** */
+.menu_hr {
+	display			: block;
+	width			: 140px;
+	height			: 1px;
+	background-image	: url(../imagens/img_back_menu.gif);
+}
+
+.BotaoMenuPai a, .BotaoMenu a, .BotaoOpcao a 
+{	
+	display			: block;
+	padding-left		: 15px;
+	width			: 125px;
+	font-family		: "Trebuchet MS", "Arial Narrow";
+	font-size		: 12px;
+	font-weight		: bolder;
+	color			: black;
+	text-decoration	: none;
+	cursor			: default;
+	font-style		: normal;
+	background		: url('..\\imagens\\btn_menu_pai.gif') top left no-repeat;
+}
+
+.BotaoMenu a {	
+	background		: url('..\\imagens\\btn_menu.gif') 0 0 no-repeat;	
+}	
+
+.BotaoMenuPai a:hover, .BotaoMenu a:hover, .BotaoMenuPai a:active, .BotaoMenu a:active 
+{
+	background-position	: -140px 0;
+	color			: #ffffff;
+	cursor			: pointer;
+}
+
+.BotaoOpcao a
+{
+	font			: normal 10px "Lucida Sans", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;	
+	background		: url('..\\imagens\\btn_menu_opcao.gif') 0 0 no-repeat;	
+	padding-top		: 3px;
+}
+
+.BotaoOpcao a:hover, .BotaoOpcao a:active
+{	
+	background-position	: -140px 0;
+	color			: #ffffff;
+	cursor			: pointer;
+}
+/* **************************** Fim: Menu Lateral Esquerdo **************************** */
+
+/********************************** Início: Estilos para Rodapé **********************************/
+#Rodape
+{
+	background-image	: url(../imagens/img_back_rodape.png);
+	position		: absolute;	
+	bottom			: 0px;
+	width			: 100%;
+	height			: 30px;	
+	padding-top		: 0px;	
+	font			: normal 10px "Trebuchet MS", Arial, Helvetica, sans-serif;	
+	color			: white;
+	text-align		: center;
+}
+/********************************** Fim: Estilos para Rodapé **********************************/
+
+/********************************** Início: Estilos para Quadro de Aviso **********************************/
+.QuadroAviso
+{
+	position		: relative;
+	width			: 100%;						
+}
+
+.QuadroAviso table
+{
+	border			: #adaaad solid 1px;
+	text-align		: center;
+}
+
+.TituloAviso
+{
+	background		: url('..\\imagens\\img_back_rodape.png') repeat-x;
+	color			: white;
+	font			: bold 80% "Lucida Sans", "Lucida Sans Unicode", Verdana, Arial, Sans-Serif;
+	height			: auto;
+}
+
+.ConteudoAviso
+{			
+	height			: auto;
+}
+/********************************** Fim: Estilos para Quadro de Aviso **********************************/

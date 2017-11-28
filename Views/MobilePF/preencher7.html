@@ -1,0 +1,97 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="ISO-8859-1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link href="style.css" rel="stylesheet">
+
+    <title>
+        Atualizar Cadastro de Pessoa Física - Dados pessoais -
+        NEL Mobile
+    </title>
+</head>
+
+<body class="">
+
+    <header id="titulos">
+
+        <h1>
+            Atualizar Cadastro de Pessoa Física
+        </h1>
+        <h2>Dados pessoais</h2>
+    </header>
+
+    <section id="conteudo">
+        <!-- Inicio do conteudo -->
+        <div id="DFormulario" class="target target-visible">
+            <form role="form" name="Frm" id="Frm" class="form-block" action="cad_cnt_dig_08_m.asp" method="post" onsubmit="saveData()">
+                <table class="table table-form">
+                    <tr>
+                        <th><label for="EstadoCivil">Estado civil</label></th>
+                        <td>
+                            <select id="EstadoCivil" name="EstadoCivil">
+                                <option value="0" selected></option>
+
+
+                                <option value="1">SOLTEIRO(A)</option>
+
+
+                                <option value="2">CASADO(A) COM COMUNHAO PARCIAL DE BENS</option>
+
+
+                                <option value="3">CASADO(A) COM COMUNHAO UNIVERSAL DE BENS</option>
+
+
+                                <option value="4">CASADO(A) COM SEPARACAO DE BENS</option>
+
+
+                                <option value="6">DIVORCIADO(A)</option>
+
+
+                                <option value="8">VIUVO(A)</option>
+
+
+                                <option value="9">SEPARADO(A) JUDICIALMENTE</option>
+
+                            </select>
+                        </td>
+                    </tr>
+                    <tr id="UniaoEstavelTR">
+                        <th><label for="UniaoEstavel">Uni&atilde;o est&aacute;vel</label></th>
+                        <td class="radio-right">
+                            <input type="radio" value="S" name="UniaoEstavel" id="UniaoEstavelSim" /><label for="UniaoEstavelSim">Sim</label><br /><input type="radio" value="P" name="UniaoEstavel" id="UniaoEstavelNao" /><label for="UniaoEstavelNao">N&atilde;o</label>
+                        </td>
+                    </tr>
+                    <tr id="NomeConjugeTR">
+                        <th><label for="NomeConjuge">Nome do c&ocirc;njuge</label></th>
+                        <td><input type="text" class="uppercase" maxlength="40" id="NomeConjuge" name="NomeConjuge" value="" /></td>
+                    </tr>
+                    <tr id="CpfConjugeTR">
+                        <th><label for="CPFConjuge">CPF do c&ocirc;njuge</label></th>
+                        <td><input type="tel" class="input-cpf" id="CPFConjuge" name="CPFConjuge" value="" /></td>
+                    </tr>
+                </table>
+
+                <footer>
+                    <a type="submit" class="btn btn-avancar" href="preencher8.html">
+                        Continuar
+                    </a>
+                </footer>
+
+            </form>
+        </div>
+        <!-- Final da #DFormulario -->
+        <!-- Final do conteudo -->
+    </section>
+
+    <script type="text/javascript" charset="utf-8" src="js/scripts.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/cad_cnt_dig_07_m.min.js"></script>
+
+</body>
+</html>

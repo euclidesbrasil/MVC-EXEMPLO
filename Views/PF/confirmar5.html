@@ -1,0 +1,823 @@
+﻿<html>
+<head>
+    <title>
+        Nordeste Eletrônico
+    </title>
+    <link rel="stylesheet" type="text/css" href="estilo_nee.css">
+
+    <link rel="stylesheet" type="text/css" href="estilo_mozilla.css">
+
+    <script type="text/javascript" src="http://d001nee01/InternetBankingFNE/javascript/inc_fuc_cpf_cgc.js"></script>
+    <script type="text/javascript" src="http://d001nee01/InternetBankingFNE/javascript/inc_fuc_frm.js?versao=1"></script>
+    <script type="text/javascript" src="http://d001nee01/InternetBankingFNE/javascript/inc_fuc_mnu.js"></script>
+    <style type="text/css">
+        .submenu {
+            display: none;
+        }
+    </style>
+
+    <script type="text/javascript" src="http://d001nee01/InternetBankingFNE/javascript/inc_fuc_cld_01.js"></script>
+    <link rel="stylesheet" type="text/css" href="jsmodal-dark.css">
+    <script type="text/javascript" src="http://d001nee01/InternetBankingFNE/javascript/jsModal/js/jsmodal-1.0d.js"></script>
+    <script language="javascript">
+        // Impedir volta da pagina indevida, causada pelo botao BackSpace
+
+        document.onkeydown = function (e) {
+
+            if (!e)
+                e = window.event;
+
+            //IE
+            if (navigator.appName.indexOf('Microsoft') != -1) {
+                if (e.keyCode == 8 && e.srcElement.type != "text" && e.srcElement.tagName != "TEXTAREA") {
+                    e.cancelBubble = true;
+                    e.returnValue = false;
+                }
+
+            }
+                //FF
+            else {
+
+                if (e.which == 8 && e.target.type != "text" && e.target.tagName != "TEXTAREA") {
+                    e.stopPropagation();
+                    e.preventDefault();
+                }
+
+            }
+
+        }
+
+        // fim da rotina que impede a volta da pagina, causada pelo botao BackSpace
+
+        function fnSair() {
+            if (confirm("Deseja realmente sair?"))
+                location.href = "http://d001nee01/InternetBankingFNE/ini_pgn_fim_ses.asp";
+        }
+
+
+
+        var min = 47;
+        var sec = 50;
+
+        function fnTempoRestante() {
+            sec--;
+            if (sec < 0) {
+                sec = 59;
+                min = min - 1;
+            }
+            else {
+                min = min;
+            }
+
+            if (sec < 10) {
+                sec = "0" + sec;
+            }
+
+            time = (min < 10 ? "0" + min : min) + ":" + sec;
+
+            if (document.getElementById) {
+                document.getElementById("TempoRestanteSessao").innerHTML = time;
+            }
+
+            SD = window.setTimeout("fnTempoRestante();", 1000);
+
+            if (min == '00' && sec == '00') {
+                window.clearTimeout(SD);
+            }
+        }
+
+        function prExecutarEvento(func) {
+            var oldonload = window.onload;
+
+            if (typeof window.onload != 'function') {
+                window.onload = func;
+            }
+            else {
+                window.onload = function () {
+                    if (oldonload) {
+                        oldonload();
+                    }
+                    func();
+                }
+            }
+        }
+
+        prExecutarEvento(function () { fnTempoRestante(); });
+
+    </script>
+    <!-- Inicio : Tela de progresso  -->
+</head>
+<body marginwidth="0" marginheight="0">
+    <div id="MensagemEspera" style="display: none;">
+        <div id="TelaProgresso" style="display: block;"></div>
+        <div id="QuadroProgresso" style="display: block;">
+            &nbsp; <img src="http://d001nee01/InternetBankingFNE/imagens/img_carregando.gif"> &nbsp; &nbsp;
+            Aguarde, estamos processando...
+            &nbsp;
+        </div>
+    </div>
+    <script language="javascript">
+        //função prExibirBarraProcessamento: Ativa a mensagem "Aguarde! Estamos processando" e impede o duplo clique
+        //Parâmetros: Não possui.
+        function prExibirBarraProcessamento() {
+            TelaProgresso.style.display = "block";
+            QuadroProgresso.style.display = "block";
+        }
+
+        prExibirBarraProcessamento()
+
+    </script>
+
+    <!-- Fim : Tela de progresso -->
+
+
+    <div id="Tudo">
+        <div id="CabecalhoInterno">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                    <tr>
+                        <td width="158" height="97" valign="top" rowspan="4">
+                            <a href="http://d001nee01/InternetBankingFNE/ent_ini_01.asp">
+                                <img src="http://d001nee01/InternetBankingFNE/imagens/img_logo_top_interno.gif" alt="Nordeste Eletrônico" width="158" height="97" border="0">
+                            </a>
+                        </td>
+                        <td class="DataCabecalho" colspan="3">
+                            Quarta-Feira, 08 de Fevereiro de 2017
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="26" colspan="3">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tbody>
+                                    <tr>
+                                        <td width="180" height="26">
+                                            <img src="http://d001nee01/InternetBankingFNE/imagens/img_titulo_nee.gif" width="164" height="26" hspace="3">
+                                        </td>
+                                        <td align="right" id="btnSair">
+                                            <a href="javascript:fnSair();">
+                                                &nbsp;&gt;&gt;
+                                                Sair
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="25" valign="middle" class="InformacoesConta" colspan="3">
+                            <span class="LabelConta" id="TextoLabelAgencia">
+                                AGÊNCIA:
+                            </span>
+                            <span class="InformacaoConta" id="AgenciaSelecionada">
+                                035
+                            </span>
+                            &nbsp;
+                            <span class="LabelConta" id="TextoLabelConta">
+                                CONTA:
+                            </span>
+                            <span class="InformacaoConta" id="ContaSelecionada">
+                                000003728-6 (Conta Corrente)
+                            </span>
+                            <!--
+                            &nbsp;
+                            <span class="LabelConta" id="TextoLabelContaVinculadaSelecionada"  style="display: none;" >
+                            CONTA INV. VINCULADA:
+                            </span>
+
+                            <span class="InformacaoConta" id="ContaVinculadaSelecionada"  style="display: none;" >
+                            000000000-0
+                            </span>
+                            -->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="31" class="InformacoesAcesso">
+                            Bom-dia CAETANO VELOSO
+                            <br>
+                            Último acesso: 08/02/2017 10:06 -  Acesso n.º 60 - Tempo Restante <span id="TempoRestante"><span id="TempoRestanteSessao">46:51</span> </span>
+                        </td>
+                        <td height="31" rowspan="2" class="MensagensUsuario">
+                            <img src="http://d001nee01/InternetBankingFNE/imagens/ico_envelope.gif" width="16" height="9">
+                            <a href="http://d001nee01/InternetBankingFNE/ent_msg_usu_01.asp" class="Link" id="link" onmouseover="window.status='Não há mensagens novas.'; return true;" onmouseout="window.status=''" onclick="window.status='';" tabindex="1">Não há mensagens novas.</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- fim div #CabecalhoInterno -->
+        <div id="ContainerInterno">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                    <tr>
+                        <td valign="top" width="141px">
+
+                            <div id="MenuLateralEsquerdo">
+                                <div id="masterdiv" style="width:140px;">
+                                    <div class="BotaoMenuPai" onclick="SwitchMenu('sub1')"><a href="#">Dados Cadastrais</a></div><div class="menu_hr"></div>
+                                    <span class="submenu" id="sub1" style="display: block;">
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/sld_cco_01.asp?cd_it=101&amp;Funcionalidade=101">Atualizar informações</a></div><div class="menu_hr"></div>
+                                    </span>
+                                    <div class="BotaoMenuPai" onclick="SwitchMenu('sub1')"><a href="#">Saldos</a></div><div class="menu_hr"></div>
+                                    <span class="submenu" id="sub1">
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/sld_cco_01.asp?cd_it=101&amp;Funcionalidade=101">Conta Corrente</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/sld_pou_01.asp?cd_it=102&amp;Funcionalidade=102">Poupança</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/sld_cci_01.asp?cd_it=106&amp;Funcionalidade=106">Conta Investimento</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/S401Fundos/fnd_inv_sld_01.asp?cd_it=103&amp;Funcionalidade=103">Fundo de Investimento</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/sld_dem_01.asp?cd_it=105&amp;Funcionalidade=105">Demonstrativo de Saldos</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/S493SIOF/sld_car_cli_01.asp?cd_it=104&amp;Funcionalidade=104">Carteira de clientes</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/teste2.asp?Funcionalidade=110">TESTE</a></div><div class="menu_hr"></div>
+                                    </span>
+                                    <div class="BotaoMenuPai" onclick="SwitchMenu('sub2')"><a href="#">Extratos</a></div><div class="menu_hr"></div>
+                                    <span class="submenu" id="sub2">
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/ext_cco_01.asp?cd_it=203&amp;CodFunc=0048&amp;Funcionalidade=203">Conta Corrente - no dia</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/ext_cco_01.asp?cd_it=204&amp;CodFunc=0049&amp;Funcionalidade=204">Conta Corrente - 5 dias</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/ext_cco_01.asp?cd_it=205&amp;CodFunc=0050&amp;Funcionalidade=205">Conta Corrente - no período</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/ext_cci_01.asp?cd_it=209&amp;Funcionalidade=209">Conta Investimento</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/ext_pou_01.asp?cd_it=201&amp;Funcionalidade=201">Poupança</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/S401Fundos/fnd_inv_ext_01.asp?cd_it=202&amp;Funcionalidade=202">Fundo de Investimento</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/ext_cns_01.asp?cd_it=206&amp;Funcionalidade=206">Consolidado</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/ext_inf_ren.asp?cd_it=207&amp;Funcionalidade=207">Informe de Rendimentos</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/ext_tar_01.asp?cd_it=210&amp;Funcionalidade=210">Consolidado de Tarifas</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/S493SIOF/ext_car_cli_cci_01.asp?cd_it=208&amp;Funcionalidade=208">Carteira de Clientes</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/ext_enc_01.asp?cd_it=211&amp;Funcionalidade=211">Consolidado de Encargos</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/ext_lnc_fut_01.asp?cd_it=212&amp;Funcionalidade=212">Lançamentos Futuros</a></div><div class="menu_hr"></div>
+                                    </span>
+                                    <div class="BotaoMenuPai" onclick="SwitchMenu('sub3')"><a href="#">Cobrança</a></div><div class="menu_hr"></div>
+                                    <span class="submenu" id="sub3">
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/cob_con_01.asp?cd_it=401&amp;CodItem=20&amp;CodFunc=0020&amp;Funcionalidade=401">Entrada de Títulos</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/cob_con_01.asp?cd_it=402&amp;CodItem=182&amp;CodFunc=0021&amp;Funcionalidade=402">Informações de Cobrança</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/cob_con_01.asp?cd_it=403&amp;CodItem=183&amp;CodFunc=0022&amp;Funcionalidade=403">Posição Geral da Carteira</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/cob_con_01.asp?cd_it=404&amp;CodItem=184&amp;CodFunc=0023&amp;Funcionalidade=404">Previsão de Recebimentos</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/cob_con_01.asp?cd_it=405&amp;CodItem=185&amp;CodFunc=0024&amp;Funcionalidade=405">Risco por Sacado</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/cob_con_01.asp?cd_it=406&amp;CodItem=186&amp;CodFunc=0025&amp;Funcionalidade=406">Títulos</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/cob_con_01.asp?cd_it=407&amp;CodItem=187&amp;CodFunc=0026&amp;Funcionalidade=407">Títulos a Vencer</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/cob_con_01.asp?cd_it=408&amp;CodItem=188&amp;CodFunc=0027&amp;Funcionalidade=408">Títulos Baixados</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/cob_con_01.asp?cd_it=409&amp;CodItem=189&amp;CodFunc=0028&amp;Funcionalidade=409">Títulos em Cartório</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/cob_con_01.asp?cd_it=410&amp;CodItem=190&amp;CodFunc=0029&amp;Funcionalidade=410">Títulos Liquidados</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/cob_con_01.asp?cd_it=411&amp;CodItem=191&amp;CodFunc=0030&amp;Funcionalidade=411">Títulos Liquidados por Correspondente</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/cob_con_01.asp?cd_it=412&amp;CodItem=192&amp;CodFunc=0031&amp;Funcionalidade=412">Títulos por Sacado</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/cob_con_01.asp?cd_it=413&amp;CodItem=193&amp;CodFunc=0032&amp;Funcionalidade=413">Títulos Vencidos</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/cob_con_01.asp?cd_it=414&amp;CodItem=194&amp;CodFunc=0033&amp;Funcionalidade=414">Emissão 2º Via Boleto Bancário</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/cob_con_01.asp?cd_it=416&amp;CodItem=197&amp;CodFunc=0125&amp;Funcionalidade=416">Francesinha</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/cob_con_01.asp?cd_it=418&amp;CodItem=200&amp;CodFunc=0122&amp;Funcionalidade=418">Tarifas de Pré-Impresso</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/cob_con_01.asp?cd_it=419&amp;CodItem=196&amp;CodFunc=0123&amp;Funcionalidade=419">Rejeitados de Troca Eletrônica</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/cob_con_01.asp?cd_it=420&amp;CodItem=199&amp;CodFunc=0124&amp;Funcionalidade=420">Digitação de Instruções</a></div><div class="menu_hr"></div>
+                                    </span>
+                                    <div class="BotaoMenuPai" onclick="SwitchMenu('sub4')"><a href="#">Câmbio</a></div><div class="menu_hr"></div>
+                                    <span class="submenu" id="sub4">
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/S430Cambio/cmb_cnt_exp_01.asp?cd_it=601&amp;Funcionalidade=601">Contratos de Câmbio - Exportação</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/S430Cambio/cmb_crt_cre_exp_01.asp?cd_it=605&amp;Funcionalidade=605">Cartas de Crédito de Exportação</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/S430Cambio/cmb_cob_exp_01.asp?cd_it=604&amp;Funcionalidade=604">Cobranças de Exportação</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/S430Cambio/cmb_crt_cre_imp_01.asp?cd_it=603&amp;Funcionalidade=603">Cartas de Crédito de Importação</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/S430Cambio/cmb_cob_imp_01.asp?cd_it=606&amp;Funcionalidade=606">Cobranças de Importação</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/S430Cambio/cmb_fin_imp_01.asp?cd_it=602&amp;Funcionalidade=602">Financiamentos à Importação</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/S430Cambio/cmb_pgt_rec_01.asp?cd_it=607&amp;Funcionalidade=607">Ordens de Pagamentos Recebidas</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/S430Cambio/cmb_ope_liq_01.asp?cd_it=608&amp;Funcionalidade=608">Operações Contratadas / Liquidadas</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/S430Cambio/cmb_oco_cli_01.asp?cd_it=609&amp;Funcionalidade=609">Ocorrências a Cumprir - Cliente</a></div><div class="menu_hr"></div>
+                                    </span>
+                                    <div class="BotaoMenuPai" onclick="SwitchMenu('sub5')"><a href="#">Cartões</a></div><div class="menu_hr"></div>
+                                    <span class="submenu" id="sub5">
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/crt_mgn_rem_01.asp?cd_it=301&amp;tpconta=c&amp;Funcionalidade=301">Conta Corrente - Reemissão de Cartão</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/crt_mgn_lib_01.asp?cd_it=302&amp;tpconta=c&amp;Funcionalidade=302">Conta Corrente - Liberação de Cartão</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/crt_mgn_blq_01.asp?cd_it=303&amp;tpconta=c&amp;Funcionalidade=303">Conta Corrente - Bloqueio de Cartão</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/crt_mgn_rem_01.asp?cd_it=304&amp;tpconta=p&amp;Funcionalidade=304">Conta de Poupança - Reemissão de Cartão</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/crt_mgn_lib_01.asp?cd_it=305&amp;tpconta=p&amp;Funcionalidade=305">Conta de Poupança - Liberação de Cartão</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/crt_mgn_blq_01.asp?cd_it=306&amp;tpconta=p&amp;Funcionalidade=306">Conta de Poupança - Bloqueio de Cartão</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/crt_crd_con_01.asp?cd_it=308&amp;tp_pes=F&amp;Funcionalidade=308">Cartão de Crédito</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/ext_lnc_vsa_01.asp?cd_it=310&amp;Funcionalidade=310">Lançamentos Cartões de Débito</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/S494Giro/gr_sim_taxa_01.asp?Funcionalidade=309">Simulação de Taxas – Cartão Capital de Giro</a></div><div class="menu_hr"></div>
+                                    </span>
+                                    <div class="BotaoMenuPai" onclick="SwitchMenu('sub6')"><a href="#">Crédito</a></div><div class="menu_hr"></div>
+                                    <span class="submenu" id="sub6">
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/S950SIAC/ems_bol_sia_01.asp?cd_it=701&amp;Funcionalidade=701">Emissão 2º Via Boleto SIAC</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/S035SINC/crd_tra_prp_01.asp?cd_it=702&amp;Funcionalidade=702">Trâmite de Proposta de Crédito</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/S999APR/tst_apr_frm.asp?Funcionalidade=703">Dados Contratuais</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/S463CDC/cdc_slc_crd_01.asp?cd_it=704&amp;Funcionalidade=704">Crédito Direto ao Consumidor - CDC</a></div><div class="menu_hr"></div>
+                                    </span>
+                                    <div class="BotaoMenuPai" onclick="SwitchMenu('sub7')"><a href="#">Cartão FNE</a></div><div class="menu_hr"></div>
+                                    <span class="submenu" id="sub7" style="display: none;">
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/S562FNE/crt_fne_aut_cmp_01.asp?cd_it=3001&amp;Funcionalidade=3001">Simular/Gerar Autorização de Compra</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/S562FNE/crt_fne_lst_aut_cmp_01.asp?cd_it=3002&amp;Funcionalidade=3002">Consultar Compras</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/S562FNE/crt_fne_lst_aut_cmp_01.asp?cd_it=3003&amp;Funcionalidade=3003">Cancelar Compra</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/S562FNE/crt_fne_docs_01.asp?cd_it=3004&amp;Funcionalidade=3004">Documentos FNE</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/S562FNE/crt_fne_lst_apr_cmp_01.asp?cd_it=3005&amp;Funcionalidade=3005">Aprovar compras</a></div><div class="menu_hr"></div>
+                                    </span>
+                                    <div class="BotaoMenuPai" onclick="SwitchMenu('sub8')"><a href="#">Investimentos</a></div><div class="menu_hr"></div>
+                                    <span class="submenu" id="sub8">
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/S401Fundos/fnd_inv_apl_01.asp?cd_it=501&amp;Funcionalidade=501">Aplicação</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/S401Fundos/fnd_inv_rsg_01.asp?cd_it=502&amp;Funcionalidade=502">Resgate</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/S401Fundos/fnd_inv_cnc_01.asp?cd_it=503&amp;Funcionalidade=503">Cancelamento</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/S401Fundos/fnd_inv_anl_prf_01.asp?cd_it=504&amp;Funcionalidade=504">Análise do Perfil do Investidor</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/S401Fundos/fnd_inv_cns_agd_01.asp?cd_it=505&amp;Funcionalidade=505">Consulta Agendamentos</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/S401Fundos/fnd_emi_ext_01.asp?cd_it=506&amp;Funcionalidade=506">Emissão de Extrato</a></div><div class="menu_hr"></div>
+                                    </span>
+                                    <div class="BotaoMenuPai" onclick="SwitchMenu('sub9')"><a href="#">Pagamentos</a></div><div class="menu_hr"></div>
+                                    <span class="submenu" id="sub9">
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/pgt_tit_bnc_01.asp?cd_it=801&amp;Funcionalidade=801">Boleto Bancário</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/pgt_cvn_con_01.asp?cd_it=802&amp;Funcionalidade=802">Água, Luz, Telefone e Gás</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/pgt_cvn_con_01.asp?cd_it=803&amp;Funcionalidade=803">Tributos, Taxas e Contribuições Estaduais</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/pgt_cvn_con_01.asp?cd_it=804&amp;Funcionalidade=804">Tributos, Taxas e Contribuições Federais</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/pgt_cvn_con_01.asp?cd_it=802&amp;Funcionalidade=805">Tributos, Taxas e Contribuições Municipais</a></div><div class="menu_hr"></div>
+                                    </span>
+                                    <div class="BotaoMenuPai" onclick="SwitchMenu('sub10')"><a href="#">Transferências</a></div><div class="menu_hr"></div>
+                                    <span class="submenu" id="sub10">
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/trf_cnt_bnb_01.asp?cd_it=901&amp;Funcionalidade=901">Transferência entre Contas BNB</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/ems_doc_01.asp?cd_it=902&amp;Tipo=D&amp;Funcionalidade=902">DOC - D (Mesma Titularidade)</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/ems_doc_01.asp?cd_it=903&amp;Tipo=E&amp;Funcionalidade=903">DOC - E (Diferentes Titularidades)</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/ems_ted_01.asp?cd_it=904&amp;Tipo=M&amp;Funcionalidade=904">TED - Conta Corrente - Mesma Titularidade</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/ems_ted_01.asp?cd_it=905&amp;Tipo=D&amp;Funcionalidade=905">TED - Conta Corrente - Diferente Titularidade</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/ems_ted_01.asp?cd_it=906&amp;Tipo=I&amp;Funcionalidade=906">TED - Conta Investimento</a></div><div class="menu_hr"></div>
+                                    </span>
+                                    <div class="BotaoMenuPai" onclick="SwitchMenu('sub11')"><a href="#">Agendamento</a></div><div class="menu_hr"></div>
+                                    <span class="submenu" id="sub11">
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/age_cns_01.asp?cd_it=1001&amp;Funcionalidade=1001">Consulta</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/age_cnc_01.asp?cd_it=1002&amp;Funcionalidade=1002">Cancelamento</a></div><div class="menu_hr"></div>
+                                    </span>
+                                    <div class="BotaoMenuPai" onclick="SwitchMenu('sub12')"><a href="#">Comprovantes</a></div><div class="menu_hr"></div>
+                                    <span class="submenu" id="sub12">
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/cpv_trn_01.asp?cd_it=1101&amp;tp=1&amp;Funcionalidade=1101">Pagamentos</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/cpv_trn_01.asp?cd_it=1102&amp;tp=2&amp;Funcionalidade=1102">TED</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/cpv_trn_01.asp?cd_it=1103&amp;tp=3&amp;Funcionalidade=1103">DOC</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/cpv_trn_01.asp?cd_it=1104&amp;tp=4&amp;Funcionalidade=1104">Transferência</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/cpv_trn_01.asp?cd_it=1105&amp;tp=5&amp;Funcionalidade=1105">Água / Luz / Telefone / Gás</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/cpv_trn_01.asp?cd_it=1106&amp;tp=6&amp;Funcionalidade=1106">Tributos, Taxas e Contribuições Estaduais</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/cpv_trn_01.asp?cd_it=1107&amp;tp=7&amp;Funcionalidade=1107">Tributos, Taxas e Contribuições Federais</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/cpv_trn_01.asp?cd_it=1108&amp;tp=8&amp;Funcionalidade=1108">Tributos, Taxas e Contribuições Municipais</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/S463CDC/cpv_cdc_01.asp?cd_it=1109&amp;Funcionalidade=1109">CDC</a></div><div class="menu_hr"></div>
+                                    </span>
+                                    <div class="BotaoMenuPai" onclick="SwitchMenu('sub13')"><a href="#">Transações</a></div><div class="menu_hr"></div>
+                                    <span class="submenu" id="sub13">
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/usu_trn_aut_01.asp?cd_it=1401&amp;Funcionalidade=1401">Transações Pendentes</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/cns_hst_trn_01.asp?cd_it=1401&amp;Funcionalidade=1402">Histórico de Transações</a></div><div class="menu_hr"></div>
+                                    </span>
+                                    <div class="BotaoMenuPai" onclick="SwitchMenu('sub14')"><a href="#">Outras Opções</a></div><div class="menu_hr"></div>
+                                    <span class="submenu" id="sub14">
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/usu_pfl_aco_alt_01.asp?cd_it=1201&amp;Funcionalidade=1201">Alteração de Perfil de Acesso</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/usu_snh_aco_alt_01.asp?cd_it=1202&amp;Funcionalidade=1202">Alteração de Senha de Acesso</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/usu_aco_cnc_01.asp?cd_it=1203&amp;Funcionalidade=1203">Cancelamento de Acesso</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/usu_mov_cad_01.asp?cd_it=1204&amp;Funcionalidade=1204">Solicitação de Movimentação</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/ope_cad_01.asp?cd_it=1206&amp;Funcionalidade=1206">Cadastro de Operador</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/usu_crt_seg_asc_01.asp?cd_it=1207&amp;Funcionalidade=1207">Cadastro de Cartão de Segurança</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/usu_mov_fin_cns_01.asp?cd_it=1208&amp;Funcionalidade=1208">Consulta de Movimentação Financeira</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/usu_ads_cnc_pct_01.asp?cd_it=1209&amp;Funcionalidade=1209">Cancelamento de Pacote de Tarifas</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/lst_prv_saq.asp?cd_it=1210&amp;Funcionalidade=1210">Provisionamento de Saque</a></div><div class="menu_hr"></div>
+                                    </span>
+                                    <div class="BotaoMenuPai" onclick="SwitchMenu('sub15')"><a href="#">Nordeste Empresarial</a></div><div class="menu_hr"></div>
+                                    <span class="submenu" id="sub15">
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/nee_emp_aut_cnc_arq_01.asp?cd_it=1301&amp;opt=aut&amp;Funcionalidade=1301">Autorização de Arquivo</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/nee_emp_aut_cnc_arq_01.asp?cd_it=1302&amp;opt=cnc&amp;Funcionalidade=1302">Cancelamento de Arquivo</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/nee_emp_cns_slv_arq_01.asp?cd_it=1303&amp;opt=cns&amp;Funcionalidade=1303">Consulta de Arquivos</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/nee_emp_cns_slv_arq_01.asp?cd_it=1304&amp;opt=slv&amp;Funcionalidade=1304">Arquivo de Retorno</a></div><div class="menu_hr"></div>
+                                    </span>
+                                    <div class="BotaoMenuPai" onclick="SwitchMenu('sub16')"><a href="#">Débito Automático</a></div><div class="menu_hr"></div>
+                                    <span class="submenu" id="sub16">
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/S489CVN/cad_deb_aut_01.asp?cd_it=1701&amp;op=cad&amp;Funcionalidade=1701">Cadastrar Débito Automático</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/S489CVN/con_deb_aut_01.asp?cd_it=1703&amp;op=con&amp;Funcionalidade=1703">Consultar Débito Automático</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/S489CVN/con_deb_aut_01.asp?cd_it=1702&amp;op=exc&amp;Funcionalidade=1702">Excluir Débito Automático</a></div><div class="menu_hr"></div>
+                                    </span>
+                                    <div class="BotaoMenuPai" onclick="SwitchMenu('sub17')"><a href="#">Saque Sem Cartão</a></div><div class="menu_hr"></div>
+                                    <span class="submenu" id="sub17">
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/saq_scrt_lst_01.asp?cd_it=2001&amp;Funcionalidade=2001">Adesão/Cancelamento</a></div><div class="menu_hr"></div>
+                                        <div class="BotaoOpcao"><a href="/InternetBankingFNE/saq_scrt_lst_01.asp?cd_it=2002&amp;Funcionalidade=2002">Códigos de Segurança</a></div><div class="menu_hr"></div>
+                                    </span>
+                                    <div class="BotaoMenuPai"><a href="/InternetBankingFNE/ini_fal_con_01.asp?Pag=int"> Fale Conosco</a></div>
+                                    <div style="height:10px; background-image:url(/InternetBankingFNE/imagens/img_back_fim_menu.gif);"></div>
+
+                                    <div style="height:30px; background-image:url(/InternetBankingFNE/imagens/img_back_fim_menu.gif);"></div>
+                                </div>
+
+                            </div>
+
+                            <script language="javascript">
+                                fnConfigurarMouseOver("masterdiv");
+                                var menuFavoritos = document.getElementById("sub75");
+                                if (menuFavoritos)
+                                    menuFavoritos.style.display = 'block';
+                            </script>
+
+                        </td>
+                        <td width="20px"></td>
+                        <td valign="top" height="100%">
+                            <br>
+
+                            <span class="TituloPagina">Atualização Cadastral</span>
+                            <!--DADOS DA EMPRESA-->
+                            <span id="SpanImpressao" name="SpanImpressao">
+
+                                <!--LOGOMARCA BNB--><span class="TituloPagina"></span>
+                                <table width="99%" border="0" cellspacing="0" cellpadding="2" align="center">
+                                    <tbody><tr><td><div align="right"></div></td></tr></tbody>
+                                </table>
+                                <br><table width="99%" border="0" cellspacing="0" cellpadding="2" align="center">
+                                    <tbody>
+                                        <tr><td align="Left" width="50%"><span class="Rotulo">Titular: </span><span class="Texto">QUADD SURFWEAR COMERCIO LTDA</span></td><td align="Right" width="50%"><span class="Rotulo">CPF: </span><span class="Texto">025.569.963-58</span></td></tr>
+                                        <tr><td align="Left" width="50%"><span class="Rotulo">Agência: </span><span class="Texto">035 - NATAL CENTRO</span></td><td align="Right" width="50%"><span class="Rotulo">Conta Corrente: </span><span class="Texto">000003728-6</span></td></tr>
+
+                                    </tbody>
+                                </table>
+                                <br>
+                                <script language="javascript">
+
+                                    function fnPesquisarCidades() {
+                                        document.frm1.action = "http://d001nee01/InternetBankingFNE/S562FNE/crt_fne_aut_cmp_03.asp";
+                                        document.frm1.submit();
+                                    }
+
+                                    function fnSetFornecedor(mCnpj, mNomeFornecedor, mEstado, mCidade, mRamoAtividade) {
+                                        var cnpjAux = fnFormatarCNPJFNE(mCnpj);
+                                        if (cnpjAux > 0) {
+                                            var id = "rd-btn-" + cnpjAux + "-" + mNomeFornecedor.replace(" ", "_");
+                                            document.frm1.CNPJFornecedor.value = mCnpj;
+                                            document.frm1.NomeFornecedor.value = mNomeFornecedor;
+
+                                            document.getElementById("EstadoFornecedor").value = mEstado;
+                                            document.getElementById("CidadeFornecedor").value = mCidade;
+                                            document.getElementById("RamoAtividadeFornecedor").value = mRamoAtividade;
+
+                                            if (document.getElementById(id) != null) {
+                                                document.getElementById(id).checked = true;
+                                            }
+                                        }
+                                    }
+
+                                    function fnPesquisarFornecedor() {
+                                        document.frm1.action = "http://d001nee01/InternetBankingFNE/S562FNE/crt_fne_aut_cmp_03.asp";
+                                        document.frm1.submit();
+                                    }
+
+                                    function fnVoltar() {
+                                        document.frm1.action = "http://d001nee01/InternetBankingFNE/S562FNE/crt_fne_aut_cmp_02.asp";
+                                        document.frm1.submit();
+                                    }
+
+                                    function fnValidar() {
+                                        var aux = false;
+                                        var opcoesItens = document.getElementsByName("rd_btn_for");
+
+                                        for (i = 0; i < opcoesItens.length; i++) {
+
+                                            if (opcoesItens[i].checked) {
+                                                aux = true;
+                                                break;
+                                            }
+                                        }
+
+                                        if (!aux) {
+                                            alert('É necessario escolher um dos fornecedores antes de continuar');
+                                            return false;
+                                        }
+
+                                        return true;
+                                    }
+
+                                    function fnEnviar() {
+                                        if (fnValidar()) {
+                                            document.frm1.submit();
+                                        }
+                                    }
+
+                                    function fnFormatarCNPJFNE(valor) {
+                                        if (valor != undefined && valor != null) {
+                                            valor = valor.replace(".", "");
+                                            valor = valor.replace(".", "");
+                                            valor = valor.replace(".", "");
+                                            valor = valor.replace("/", "");
+                                            valor = valor.replace("-", "");
+                                            return parseFloat(valor);
+                                        }
+                                        return 0;
+                                    }
+                                </script>
+                                <!-- INFORMAÇÃO GERAL -->
+                                <div style="position:relative;height:100%;width: 99%;margin-left:auto; margin-right:auto;">
+                                    <div class="QuadroSombra"></div>
+                                    <div class="QuadroInformacao">
+                                        <div class="TituloQuadro"> INFORMAÇÕES PARA CONTATO</div>
+                                        <table class="TextoQuadro" width="100%" border="0" cellspacing="0" cellpadding="3">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <table width="100%" border="0" cellspacing="0" cellpadding="2" align="center">
+                                                            <tbody>
+
+                                                                <tr bgcolor="#FFFFFF" id="" width="100%">
+                                                                    <td align="left" width="50%"><span class="Rotulo">CPF</span><span class="Texto"></span></td>
+                                                                    <td align="right" width="50%"><span class="Texto">025.439.163-00</span></td>
+                                                                </tr>
+                                                                <tr bgcolor="#E8E8E8" id="" width="100%">
+                                                                    <td align="left" width="50%"><span class="Rotulo">Nome Completo</span><span class="Texto"></span></td>
+                                                                    <td align="right" width="50%"><span class="Texto">Fernando Reis</span></td>
+                                                                </tr>
+                                                                <tr bgcolor="#FFFFFF" id="" width="100%">
+                                                                    <td align="left" width="50%"><span class="Rotulo">Apelido</span><span class="Texto"></span></td>
+                                                                    <td align="right" width="50%"><span class="Texto">Nando</span></td>
+                                                                </tr>
+                                                                <tr bgcolor="#E8E8E8" id="" width="100%">
+                                                                    <td align="left" width="50%"><span class="Rotulo">Sexo</span><span class="Texto"></span></td>
+                                                                    <td align="right" width="50%"><span class="Texto">Masculino</span></td>
+                                                                </tr>
+
+                                                                <tr bgcolor="#FFFFFF" id="" width="100%">
+                                                                    <td align="left" width="50%"><span class="Rotulo">Data de Nasciemento</span><span class="Texto"></span></td>
+                                                                    <td align="right" width="50%"><span class="Texto">09/12/1985</span></td>
+                                                                </tr>
+                                                                <tr bgcolor="#E8E8E8" id="" width="100%">
+                                                                    <td align="left" width="50%"><span class="Rotulo">Nome da mãe</span><span class="Texto"></span></td>
+                                                                    <td align="right" width="50%"><span class="Texto">Fernanda Nascimento</span></td>
+                                                                </tr>
+                                                                <tr bgcolor="#FFFFFF" id="" width="100%">
+                                                                    <td align="left" width="50%"><span class="Rotulo">Telefone Fixo</span><span class="Texto"></span></td>
+                                                                    <td align="right" width="50%"><span class="Texto">(85)9 9999-9797</span></td>
+                                                                </tr>
+
+                                                                <tr bgcolor="#E8E8E8" id="" width="100%">
+                                                                    <td align="left" width="50%"><span class="Rotulo">Celular</span><span class="Texto"></span></td>
+                                                                    <td align="right" width="50%"><span class="Texto">(85)9 9999-9797/span></td>
+                                                                </tr>
+                                                                <tr bgcolor="#FFFFFF" id="" width="100%">
+                                                                    <td align="left" width="50%"><span class="Rotulo">Telefone 2</span><span class="Texto"></span></td>
+                                                                    <td align="right" width="50%"><span class="Texto">98-99626.2626</span></td>
+                                                                </tr>
+                                                                <tr bgcolor="#E8E8E8" id="" width="100%">
+                                                                    <td align="left" width="50%"><span class="Rotulo">Email para contato</span><span class="Texto"></span></td>
+                                                                    <td align="right" width="50%"><span class="Texto">BNB@BNB.GOV.BR</span></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <br />
+
+                                <!-- ENDEREÇO DA SEDE -->
+                                <div style="position:relative;height:100%;width: 99%;margin-left:auto; margin-right:auto;">
+                                    <div class="QuadroSombra"></div>
+                                    <div class="QuadroInformacao">
+                                        <div class="TituloQuadro"> ENDEREÇO </div>
+                                        <table class="TextoQuadro" width="100%" border="0" cellspacing="0" cellpadding="3">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <table width="100%" border="0" cellspacing="0" cellpadding="2" align="center">
+                                                            <tbody>
+
+                                                                <tr bgcolor="#FFFFFF" id="" width="100%">
+                                                                    <td align="left" width="50%"><span class="Rotulo">CEP</span><span class="Texto"></span></td>
+                                                                    <td align="right" width="50%"><span class="Texto">60821-585</span></td>
+                                                                </tr>
+                                                                <tr bgcolor="#E8E8E8" id="" width="100%">
+                                                                    <td align="left" width="50%"><span class="Rotulo">Tipo de Logradouro</span><span class="Texto"></span></td>
+                                                                    <td align="right" width="50%"><span class="Texto">Rua</span></td>
+                                                                </tr>
+                                                                <tr bgcolor="#FFFFFF" id="" width="100%">
+                                                                    <td align="left" width="50%"><span class="Rotulo">Logradouro</span><span class="Texto"></span></td>
+                                                                    <td align="right" width="50%"><span class="Texto">Exemplo de Rua X</span></td>
+                                                                </tr>
+                                                                <tr bgcolor="#E8E8E8" id="" width="100%">
+                                                                    <td align="left" width="50%"><span class="Rotulo">Número</span><span class="Texto"></span></td>
+                                                                    <td align="right" width="50%"><span class="Texto">9999</span></td>
+                                                                </tr>
+
+                                                                <tr bgcolor="#FFFFFF" id="" width="100%">
+                                                                    <td align="left" width="50%"><span class="Rotulo">Complemento</span><span class="Texto"></span></td>
+                                                                    <td align="right" width="50%"><span class="Texto">Proximo ao BNB Passaré</span></td>
+                                                                </tr>
+                                                                <tr bgcolor="#E8E8E8" id="" width="100%">
+                                                                    <td align="left" width="50%"><span class="Rotulo">Bairro</span><span class="Texto"></span></td>
+                                                                    <td align="right" width="50%"><span class="Texto">Passaré</span></td>
+                                                                </tr>
+                                                                <tr bgcolor="#FFFFFF" id="" width="100%">
+                                                                    <td align="left" width="50%"><span class="Rotulo">UF</span><span class="Texto"></span></td>
+                                                                    <td align="right" width="50%"><span class="Texto">CE</span></td>
+                                                                </tr>
+
+                                                                <tr bgcolor="#E8E8E8" id="" width="100%">
+                                                                    <td align="left" width="50%"><span class="Rotulo">Município</span><span class="Texto"></span></td>
+                                                                    <td align="right" width="50%"><span class="Texto">Fortaleza</span></td>
+                                                                </tr>
+                                                                <tr bgcolor="#FFFFFF" id="" width="100%">
+                                                                    <td align="left" width="50%"><span class="Rotulo">Referência para Localização</span><span class="Texto"></span></td>
+                                                                    <td align="right" width="50%"><span class="Texto">Exemplo de referência de observação quanto a localização.</span></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <br />
+                                <!-- SÓCIO DA EMPRESA -->
+                                <div style="position:relative;height:100%;width: 99%;margin-left:auto; margin-right:auto;">
+                                    <div class="QuadroSombra"></div>
+                                    <div class="QuadroInformacao">
+                                        <div class="TituloQuadro">DADOS PESSOAIS</div>
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="2" align="center">
+                                            <tbody>
+
+                                                <tr bgcolor="#FFFFFF" id="" width="100%">
+                                                    <td align="left" width="50%"><span class="Rotulo">Tipo de Documento</span><span class="Texto"></span></td>
+                                                    <td align="right" width="50%"><span class="Texto">Carteira de Identidade</span></td>
+                                                </tr>
+                                                <tr bgcolor="#E8E8E8" id="" width="100%">
+                                                    <td align="left" width="50%"><span class="Rotulo">Número</span><span class="Texto"></span></td>
+                                                    <td align="right" width="50%"><span class="Texto">2001005035200</span></td>
+                                                </tr>
+                                                <tr bgcolor="#FFFFFF" id="" width="100%">
+                                                    <td align="left" width="50%"><span class="Rotulo">Orgão Emissor</span><span class="Texto"></span></td>
+                                                    <td align="right" width="50%"><span class="Texto">SSP</span></td>
+                                                </tr>
+                                                <tr bgcolor="#E8E8E8" id="" width="100%">
+                                                    <td align="left" width="50%"><span class="Rotulo">UF</span><span class="Texto"></span></td>
+                                                    <td align="right" width="50%"><span class="Texto">CE</span></td>
+                                                </tr>
+
+                                                <tr bgcolor="#FFFFFF" id="" width="100%">
+                                                    <td align="left" width="50%"><span class="Rotulo">Complemento</span><span class="Texto"></span></td>
+                                                    <td align="right" width="50%"><span class="Texto">Proximo ao BNB Passaré</span></td>
+                                                </tr>
+                                                <tr bgcolor="#E8E8E8" id="" width="100%">
+                                                    <td align="left" width="50%"><span class="Rotulo">Bairro</span><span class="Texto"></span></td>
+                                                    <td align="right" width="50%"><span class="Texto">Passaré</span></td>
+                                                </tr>
+                                                <tr bgcolor="#FFFFFF" id="" width="100%">
+                                                    <td align="left" width="50%"><span class="Rotulo">UF</span><span class="Texto"></span></td>
+                                                    <td align="right" width="50%"><span class="Texto">CE</span></td>
+                                                </tr>
+
+                                                <tr bgcolor="#E8E8E8" id="" width="100%">
+                                                    <td align="left" width="50%"><span class="Rotulo">Data de Emissão</span><span class="Texto"></span></td>
+                                                    <td align="right" width="50%"><span class="Texto">01/02/2015</span></td>
+                                                </tr>
+                                                <tr bgcolor="#FFFFFF" id="" width="100%">
+                                                    <td align="left" width="50%"><span class="Rotulo">Estado Cívil</span><span class="Texto"></span></td>
+                                                    <td align="right" width="50%"><span class="Texto">Casado</span></td>
+                                                </tr>
+                                                <tr bgcolor="#FFFFFF" id="" width="100%">
+                                                    <td align="left" width="50%"><span class="Rotulo">CPF do cônjuge</span><span class="Texto"></span></td>
+                                                    <td align="right" width="50%"><span class="Texto">O26.457.135-01</span></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+
+
+                                <br />
+                                <!-- COMPROVANTE DE ENDEREÇO -->
+                                <div style="position:relative;height:100%;width: 99%;margin-left:auto; margin-right:auto;">
+                                    <div class="QuadroSombra"></div>
+                                    <div class="QuadroInformacao">
+                                        <div class="TituloQuadro"> COMPROVANTE DE ENDEREÇO</div>
+                                        <table class="TextoQuadro" width="100%" border="0" cellspacing="0" cellpadding="3">
+                                            <tbody>
+                                                <tr bgcolor="#FFFFFF" id="" width="100%">
+                                                    <td align="left" width="50%">
+                                                        <select style="width:100%">
+                                                            <option>Selecione</option>
+                                                            <option>Extrato ou fatura de cartão de crédito</option>
+                                                            <option>Conta de água, luz ou telefone</option>
+                                                            <option>Contrato de aluguel</option>
+                                                        </select>
+                                                    </td>
+                                                    <td align="left" width="50%"><input type="file" /></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <br />
+                                <!--  COMPROVANTE DE RENDA -->
+                                <div style="position:relative;height:100%;width: 99%;margin-left:auto; margin-right:auto;">
+                                    <div class="QuadroSombra"></div>
+                                    <div class="QuadroInformacao">
+                                        <div class="TituloQuadro"> COMPROVANTE DE RENDA</div>
+                                        <table class="TextoQuadro" width="100%" border="0" cellspacing="0" cellpadding="3">
+                                            <tbody>
+                                                <tr bgcolor="#FFFFFF" id="" width="100%">
+                                                    <td align="left" width="50%">
+                                                        <select style="width:100%">
+                                                            <option>Selecione</option>
+                                                            <option>IRPF </option>
+                                                            <option>Contracheque ou declaração do empregador</option>
+                                                            <option>DECORE</option>
+                                                        </select>
+                                                    </td>
+                                                    <td align="left" width="50%"><input type="file" /></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <br />
+
+                                <table width="100%">
+                                    <tr>
+                                        <td align="right">
+
+                                            <img src="http://d001nee01/InternetBankingFNE/imagens/ico_seta_voltar.gif" width="7" height="7" border="0">&nbsp;<a href="/PF/preencher/4" class="Link" title="Voltar">Voltar</a>
+                                            <a href="#" class="Link" title="Voltar">Salvar</a>
+
+                                        </td>
+                                    </tr>
+                                </table>
+                            </span>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="Clear"></div>
+        </div> <!-- fim div #Container -->
+        <div id="Rodape">
+            SAC BANCO DO NORDESTE - 0800 728 3030 - OUVIDORIA - 0800 033 3033 - www.bancodonordeste.gov.br
+        </div>
+    </div> <!-- fim div #Tudo -->
+    <script language="JavaScript">
+        var i, j, elemento, pronto, tabindex;
+        tabindex = 1;
+
+        function configurarTabIndexAutomaticamente(aElemento) {
+            var j;
+            if (aElemento) {
+
+                if (aElemento.nodeName == 'A') {
+                    aElemento.tabIndex = tabindex++;
+                    aElemento.title = aElemento.innerHTML;
+                }
+
+                if (aElemento.nodeName == 'INPUT' || aElemento.nodeName == 'SELECT' || aElemento.nodeName == 'TEXTAREA') {
+                    aElemento.tabIndex = tabindex++;
+                }
+
+                if (aElemento.childNodes.length != 0) {
+                    for (j = 0; j < aElemento.childNodes.length; j++) {
+                        configurarTabIndexAutomaticamente(aElemento.childNodes[j]);
+                    }
+                }
+            }
+        }
+
+        function configurarSelecaoAutomatica() {
+            var j;
+
+            var auxiliar = document.getElementsByTagName('input');
+
+            if (auxiliar) {
+
+                for (j = 0; j < auxiliar.length; j++) {
+                    if (auxiliar[j].type == 'text') {
+                        auxiliar[j].onfocus = function () {
+                            this.select();
+                        }
+                    }
+                }
+            }
+        }
+
+        pronto = false;
+
+
+
+
+        elemento = document.getElementById("FOCO");
+
+        if (elemento) {
+            if (elemento.focus) {
+                elemento.focus();
+                pronto = true;
+            }
+        }
+
+        if (!pronto) {
+
+            for (i = 0; i < document.forms.length && !pronto; i++) {
+                for (j = 0; j < document.forms[i].length && !pronto; j++) {
+                    elemento = document.forms[i].elements[j];
+
+                    if (!elemento.disabled && elemento.type != 'hidden') {
+                        elemento.focus();
+                        pronto = true;
+                    }
+                }
+            }
+        }
+
+        if (document.getElementById("MensagemEspera"))
+            document.getElementById("MensagemEspera").style.display = "none";
+
+    </script>
+
+
+    <div id="modal-overlay" style="visibility: hidden;"></div><div id="modal-container" style="visibility: hidden;"><div id="modal-header"><div id="modal-close"></div></div><div id="modal-content"></div></div>
+</body>
+</html>

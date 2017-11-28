@@ -1,0 +1,296 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="ISO-8859-1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link href="style.css" rel="stylesheet">
+
+    <title>
+        Atualizar Cadastro de Pessoa Física - Sua conta -
+        NEL Mobile
+    </title>
+</head>
+
+<body class="">
+
+    <header id="titulos">
+
+        <h1>
+            Atualizar Cadastro de Pessoa Física
+        </h1>
+        <h2>Sua conta</h2>
+    </header>
+
+    <section id="conteudo">
+        <!-- In?cio do conteudo -->
+        <div id="DFormulario" class="target target-visible">
+            <form role="form" name="Frm" id="Frm" class="form-block" action="cad_cnt_dig_10_m.asp" method="post" onsubmit="saveData()">
+                <table class="table table-form">
+                    <tr>
+                        <th><label for="Agencia">Ag&ecirc;ncia</label></th>
+                        <td>
+                            <span class="input-group">
+                                <input type="text" id="Agencia" name="Agencia" readonly="readonly" onclick="javascript: location.hash = '#DSelecaoAgencia'" value="" />
+                                <span class="input-group-btn" onclick="javascript: location.hash = '#DSelecaoAgencia'">
+                                    <a class="btn btn-default btn-busca">&nbsp;</a>
+                                </span>
+                            </span>
+                        </td>
+                    </tr>
+                    </tr>
+                    <tr>
+                        <th><label for="Identificacao">Identifica&ccedil;&atilde;o (usu&aacute;rio)</label></th>
+                        <td><input type="text" class="lowercase" maxlength="40" id="Identificacao" name="Identificacao" value="" /></td>
+                    </tr>
+                    </tr>
+                    <tr>
+                        <th><label for="SenhaInternetBanking">Senha internet banking</label></th>
+                        <td><input type="password" maxlength="40" id="SenhaInternetBanking" name="SenhaInternetBanking" value="" /></td>
+                    </tr>
+
+                    </tr>
+                    <tr>
+                        <th><label for="SenhaInternetBankingConfirmacao">Confirma&ccedil;&atilde;o da Senha internet banking</label></th>
+                        <td><input type="password" maxlength="40" id="SenhaInternetBankingConfirmacao" name="SenhaInternetBankingConfirmacao" value="" /></td>
+                    </tr>
+                    </tr>
+                    <tr>
+                        <th><label for="SenhaCartao">Senha cart&atilde;o</label></th>
+                        <td><input type="password" class="input-senha-cartao-saque" maxlength="40" id="SenhaCartao" name="SenhaCartao" value="" /></td>
+                    </tr>
+                    </tr>
+                    <tr>
+                        <th><label for="SenhaCartaoConfirmacao">Confirma&ccedil;&atilde;o da senha cart&atilde;o</label></th>
+                        <td><input type="password" class="input-senha-cartao-saque" maxlength="40" id="SenhaCartaoConfirmacao" name="SenhaCartaoConfirmacao" value="" /></td>
+                    </tr>
+
+                </table>
+                <footer>
+                    <a type="button" class="btn btn-avancar" href="#">
+                        Salvar
+                    </a>
+                </footer>
+            </form>
+        </div>
+        <!-- Final da #DFormulario -->
+        <!-- Inicio do conteudo UF-->
+
+        <div id="DSelecaoAgencia" class="target">
+            <p>Selecione a ag&ecirc;ncia</p>
+            <p><input type="search" id="pesquisa" placeholder="Ag&ecirc;ncia" /></p>
+
+            <div class="btn-menu-set" id="lista">
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">264 - ACARAU</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">230 - ACOPIARA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">317 - AQUIRAZ</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">145 - ARACATI</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">231 - BARBALHA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">088 - BATURITE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">153 - BOA VIAGEM</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">114 - BREJO SANTO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">010 - CAMPOS SALES</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">062 - CANINDE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">221 - CASCAVEL</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">218 - CAUCAIA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">089 - CRATEUS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">124 - CRATO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">313 - EUSEBIO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">152 - FORTALEZA ALDEOTA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">182 - FORTALEZA BEZERRA DE MENEZES</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">299 - FORTALEZA BNB CLUBE ALDEOTA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">016 - FORTALEZA CENTRO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">189 - FORTALEZA MONTESE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">318 - FORTALEZA PARANGABA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">300 - FORTALEZA PASSARE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">263 - FORTALEZA SANTOS DUMONT</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">228 - FORTALEZA WASHINGTON SOARES</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">105 - GRANJA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">267 - HORIZONTE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">021 - IGUATU</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">298 - ITAPAJE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">119 - ITAPIPOCA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">024 - JAGUARIBE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">029 - JUAZEIRO DO NORTE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">297 - JUAZEIRO DO NORTE LAGOA SECA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">072 - LAVRAS DA MANGABEIRA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">030 - LIMOEIRO DO NORTE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">186 - MARACANAU</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">265 - MARANGUAPE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">113 - MOMBACA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">036 - NOVA RUSSAS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">227 - PACAJUS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">135 - QUIXADA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">043 - QUIXERAMOBIM</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">305 - RUSSAS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">292 - SANTA QUITERIA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">048 - SAO BENEDITO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">052 - SOBRAL</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">234 - SOBRAL DOMINGOS OLIMPIO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">055 - TAUA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">133 - TIANGUA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">268 - VICOSA DO CEARA</a>
+
+                <!--a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">230 - ACOPIARA</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">317 - AQUIRAZ</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">145 - ARACATI</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">231 - BARBALHA</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">88 - BATURITE</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">153 - BOA VIAGEM</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">114 - BREJO SANTO</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">10 - CAMPOS SALES</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">62 - CANINDE</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">221 - CASCAVEL</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">218 - CAUCAIA</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">89 - CRATEUS</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">124 - CRATO</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">313 - EUSEBIO</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">152 - FORTALEZA ALDEOTA</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">182 - FORTALEZA BEZERRA DE MENEZES</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">299 - FORTALEZA BNB CLUBE ALDEOTA</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">16 - FORTALEZA CENTRO</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">189 - FORTALEZA MONTESE</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">318 - FORTALEZA PARANGABA</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">300 - FORTALEZA PASSARE</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">263 - FORTALEZA SANTOS DUMONT</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">228 - FORTALEZA WASHINGTON SOARES</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">105 - GRANJA</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">267 - HORIZONTE</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">21 - IGUATU</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">298 - ITAPAJE</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">119 - ITAPIPOCA</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">24 - JAGUARIBE</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">29 - JUAZEIRO DO NORTE</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">297 - JUAZEIRO DO NORTE LAGOA SECA</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">72 - LAVRAS DA MANGABEIRA</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">30 - LIMOEIRO DO NORTE</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">186 - MARACANAU</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">265 - MARANGUAPE</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">113 - MOMBACA</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">36 - NOVA RUSSAS</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">227 - PACAJUS</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">135 - QUIXADA</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">43 - QUIXERAMOBIM</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">305 - RUSSAS</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">292 - SANTA QUITERIA</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">48 - SAO BENEDITO</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">52 - SOBRAL</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">234 - SOBRAL DOMINGOS OLIMPIO</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">55 - TAUA</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">133 - TIANGUA</a>
+                <a class="btn btn-menu item" onclick="bnb.busca.selecionar(this);">268 - VICOSA DO CEARA</a-->
+            </div>
+        </div>
+
+        <!-- Final do conteudo UF-->
+        <!-- Final do conteudo -->
+    </section>
+
+    <script type="text/javascript" charset="utf-8" src="js/scripts.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/cad_cnt_dig_09_m.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,506 @@
+/*
+@Arquivo: estilo_nee.css
+@Descricao: Folha de estilo principal do sistema compatível com o Internet Explorer 6.0, Internet Explorer 7.0 e Mozila Firefox 2.0
+@Requerimentos: Internet Explorer 6.0, Internet Explorer 7.0 ou Mozila Firefox 2.0
+@Atualizacoes:
+...Data de Atualiz.:		Responsável:				Necessidade de Atualização
+...29/12/2008			Thiago Silveira				Versão Inicial
+*/
+
+/********************************** Início: Estilos para página **********************************/
+html, body
+{
+	height		: 100%;
+	min-height	: 600px;
+	min-width	: 800px;
+}
+
+body
+{
+	margin		: 0;
+	padding		: 0;
+	color		: black;
+	font-family	: "Lucida Sans", "Lucida Sans Unicode", verdana, arial, helvetica, sans-serif;
+}
+
+#Tudo
+{
+	width		: 100%;
+	position	: relative;
+	margin		: 0 auto;
+	min-height	: 100%;
+	background	: #cbcbcb url('..\\imagens\\img_back_principal.png') repeat-x top left;	
+}
+
+/*Redimensiona também o #Tudo quando redimensionar a página - Move o rodapé quando redimensiona a página*/
+* html #Tudo
+{
+	height		: 100%;
+	width		: 100%;
+}
+
+.Clear
+{
+	clear		: both;
+}
+/********************************** Fim: Estilos para página **********************************/
+
+/********************************** Inicio: Estilos para a barra de processamento **********************************/
+#TelaProgresso
+{	
+	position	: absolute;
+	filter		: alpha(opacity=70);
+	background-color: white;
+	opacity		: 0.7;	
+	height		: 100%;
+	width		: 100%;
+	top		: 0;
+	left		: 0;
+	display		: none;
+}
+
+#QuadroProgresso
+{
+	/* Montando o estilo do texto */
+	position	: absolute;
+	font		: bold 12px "Lucida Sans", "Lucida Sans Unicode", Arial, Verdana, Sans-Serif;	
+	color		: blue;				
+	padding		: 10px;
+	top		: 50%;
+	left		: 40%;
+	
+	/* Montando o estilo da caixa aonde o texto irá ficar*/
+	background-color: white;
+	border		: solid 2px black;	
+	height		: 25px;
+	width		: auto;
+	display		: none; 	
+}
+/********************************** Fim: Estilos para a barra de processamento **********************************/
+
+/********************************** Início: Estilos para texto **********************************/
+.TextoContrato
+{
+	font		: 12px "Lucida Sans", "Lucida Sans Unicode", verdana, arial, helvetica, sans-serif;
+	color		: black;
+}
+
+.Texto
+{
+	font		: 12px "Lucida Sans", "Lucida Sans Unicode", verdana, arial, helvetica, sans-serif;
+	color		: black;
+}
+	
+.TextoBoldGrande
+{    
+	font		: bold 15px "Lucida Sans", "Lucida Sans Unicode", verdana, arial, helvetica, sans-serif;
+	color		: black;
+}
+
+.TextoBoldVermGrande
+{    
+	font		: bold 15px "Lucida Sans", "Lucida Sans Unicode", verdana, arial, helvetica, sans-serif;
+	color		: red;
+}
+	
+.TextoBold
+{    
+	font		: bold 13px "Lucida Sans", "Lucida Sans Unicode", verdana, arial, helvetica, sans-serif;
+	color		: black;
+}
+
+.TextoBoldVerm
+{    
+	font		: bold 13px "Lucida Sans", "Lucida Sans Unicode", verdana, arial, helvetica, sans-serif;
+	color		: red;
+}
+.TextoClaro
+{    
+	font		: 12px "Lucida Sans", "Lucida Sans Unicode", verdana, arial, helvetica, sans-serif;
+	color		: white;
+}
+.TextoClaroBold
+{    
+	font		: bold 13px "Lucida Sans", "Lucida Sans Unicode", verdana, arial, helvetica, sans-serif;
+	color		: white;
+}
+.TextoClaroMenor
+{    
+	font		: 10px "Lucida Sans", "Lucida Sans Unicode", verdana, arial, helvetica, sans-serif;	
+	color		: white;
+}
+
+.TextoMsgOk
+{
+	font		: bold 12px "Lucida Sans", "Lucida Sans Unicode", verdana, arial, helvetica, sans-serif;	
+	color		: blue;
+}
+
+.TextoMsgAviso
+{
+	font		: bold 12px "Lucida Sans", "Lucida Sans Unicode", verdana, arial, helvetica, sans-serif;	
+	color		: black;
+}
+
+.TextoMsgErro
+{
+	font		: bold 12px "Lucida Sans", "Lucida Sans Unicode", verdana, arial, helvetica, sans-serif;	
+	color		: #ca000d;
+}
+
+.TextoValorDebito
+{
+	font		: 12px "Lucida Sans", "Lucida Sans Unicode", verdana, arial, helvetica, sans-serif;
+	color		: #ca000d;
+}
+
+.TextoValorCredito
+{
+	font		: 12px "Lucida Sans", "Lucida Sans Unicode", verdana, arial, helvetica, sans-serif;
+	color		: blue;
+}
+
+.TextoDetalheExtrato
+{
+	font		: bold 10px "Lucida Sans", "Lucida Sans Unicode", verdana, arial, helvetica, sans-serif;
+	color		: #474747;
+}
+
+
+.TextoDetalheTransferenciaExtrato
+{
+	font		: bold 10px "Lucida Sans", "Lucida Sans Unicode", verdana, arial, helvetica, sans-serif;
+	color		: #474747;
+}
+
+
+.TituloPagina
+{
+	font		: bold 20px "Trebuchet MS", verdana, arial, helvetica, sans-serif;		
+	color		: #ca000d;	
+}
+
+.SubtituloPagina
+{
+	font		: bold 14px "Trebuchet MS", verdana, arial, helvetica, sans-serif;		
+	color		: #ca000d;	
+}
+
+.TituloSubSecoes
+{
+	font		: bold 14px "Trebuchet MS", verdana, arial, helvetica, sans-serif;		
+	color		: black;	
+}
+
+.Rotulo
+{
+	font		: bold 12px "Lucida Sans", "Lucida Sans Unicode", verdana, arial, helvetica, sans-serif;
+	color		: black;
+}
+/********************************** Fim: Estilos para texto **********************************/
+
+/********************************** Início: Estilos para link **********************************/
+A.Link:link, A.Link:visited, A.Link:hover
+{
+	font		: bold 12px "Lucida Sans", "Lucida Sans Unicode", verdana, arial, helvetica, sans-serif;
+	font-size	: 11px;
+	color		: #C00000;
+	text-decoration	: underline;
+}
+
+A.LinkMenor:link, A.LinkMenor:visited, A.LinkMenor:hover
+{
+	font		: bold 12px "Lucida Sans", "Lucida Sans Unicode", verdana, arial, helvetica, sans-serif;
+	font-size	: 10px;
+	color		: #C00000;
+	text-decoration	: underline;
+}
+
+.Link
+{
+	font		: bold 12px "Lucida Sans", "Lucida Sans Unicode", verdana, arial, helvetica, sans-serif;
+	color		: #C00000;
+	text-decoration	: underline;
+	cursor		: hand;
+}
+
+/********************************** Fim: Estilos para link **********************************/
+
+/********************************** Início: Estilos para formulário **********************************/
+
+.Formulario
+{
+	border		: black 1pt solid;
+	font		: 12px "Lucida Sans", "Lucida Sans Unicode", verdana, arial, helvetica, sans-serif;	
+	color		: black;
+	background-color: white;
+}
+
+td.CabecalhoColuna
+{
+	font		: 12px "Lucida Sans", "Lucida Sans Unicode", verdana, arial, helvetica, sans-serif;
+	background-color: #d3d3d3;
+	color		: black;
+	font-weight	: bold;
+}
+
+/********************************** Fim: Estilos para formulário **********************************/
+
+/********************************** Início: Estilos para Cabeçalho **********************************/
+
+#CabecalhoExterno
+{
+	margin		: 0px 0px 0px 0px;
+	left		: 0px;
+	width		: 100%;
+	height		: 73px;
+	background	: url('..\\imagens\\img_back_topo_externo.png') repeat-x top left;
+}
+
+#CabecalhoInterno
+{
+	margin		: 0px 0px 0px 0px;
+	left		: 0px;
+	width		: 100%;
+	height		: 97px;
+	background	: url('..\\imagens\\img_back_topo_interno.png') repeat-x top left;
+}
+
+.DataCabecalho
+{
+	padding-right	: 5px;
+	font		: bold 11px "Lucida Sans", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
+	color		: white;
+	text-align	: right;
+	width		: 100%;
+	height		: 18px;
+}
+
+#btnSair
+{
+	padding-right	: 5px;
+	line-height	: 10px;
+	width		: 100%;
+}
+
+#btnSair a
+{
+	font		: bold 10px "Lucida Sans", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;	
+	color		: white;
+	text-decoration	: none;
+}
+
+#InformacoesUsuario
+{
+	position	: relative;
+	left		: 0px;
+	width		: 100%;
+	height		: 60px;
+}
+
+.InformacoesConta
+{
+	padding-left	: 5px;
+	padding-right	: 5px;
+	font-family	: "Lucida Sans", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
+	font-size	: 11px;
+	font-weight	: normal;
+	color		: white;
+	line-height	: 11px;
+}
+
+span.LabelConta
+{
+	font-weight	: bold;
+	font-size	: 11px;
+}
+
+.InformacoesAcesso
+{
+	font-family	: "Lucida Sans", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
+	font-size	: 10px;
+	font-weight	: bold;
+	color		: black;
+	line-height	: 11px;
+}
+
+.MensagensUsuario
+{
+	font-family	: "Lucida Sans", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
+	font-size	: 10px;
+	font-weight	: normal;
+	color		: #696a6a;
+	vertical-align	: middle;
+	text-align	: right;
+	width		: auto;	
+}
+
+.SeparadorVertical
+{
+	border-left : dotted 2px gray;
+	padding-left: 10px;
+}
+/********************************** Fim: Estilos para Cabeçalho **********************************/
+
+/********************************** Início: Estilos para Calendário **********************************/
+div.Calendario
+{
+	position	: absolute;
+	width		  : 200px;
+	border		: 1px solid #545454;
+	font		  : 12px "Lucida Sans",  "Lucida Sans Unicode", verdana, arial, sans-serif;	
+	background: #efefef;
+	z-index		: 10;
+	display		: none;
+}
+
+div.Calendario table
+{
+	width		        : 100%;	
+	font            : 10px "Lucida Sans", "Lucida Sans Unicode", verdana, arial, sans-serif;	
+	table-layout    : fixed;
+}
+
+div.Calendario select
+{
+	font  : 10px "Lucida Sans", "Lucida Sans Unicode", verdana, arial, sans-serif;	
+	color : #545454;
+}
+
+div.Calendario td
+{
+	padding: 2px
+}
+
+.CldModificarAno
+{
+	cursor		: pointer;
+	color     : #545454;
+}
+
+div.Calendario table tr
+{
+	text-align	: center;
+}
+
+td.CldDiasDaSemana
+{
+	background-color: white;
+	border          : solid 1px #bebebe;
+	color		        : #a52a2a;
+	font-weight	: bold;
+}
+
+.CldLimitante
+{
+	text-decoration	: line-through;
+	color		        : #a52a2a;
+}
+
+.CldDiaAtivo
+{	
+	font-weight: bold;
+	cursor		 : pointer;	
+	color      : #545454;											
+}
+
+.CldDiaSelecionado
+{
+	background-color: #545454;
+	cursor		      : pointer;
+	color		        : white;
+	font-weight	    : bold;
+	width           : 100%;
+}
+
+.CldBotaoFechar
+{
+	background-color: white;
+	cursor	      	: pointer;
+	color		        : #a52a2a;
+	border          : solid 1px #bebebe;
+	font-weight	    : bold;
+	text-align	    : center;						
+}
+
+.CldFeriado
+{
+	background-color: white;
+	color           : #a52a2a;
+	font-weight     : bold;
+	text-align      : center;
+	width           : 100%;
+	border          : solid 1px #a52a2a;
+	cursor	      	: pointer;
+}
+/********************************** Fim: Estilos para Calendário **********************************/
+
+/********************************** Início: Estilos para Teclado Virtual **********************************/
+.TecladoVirtual
+{
+	text-align  : center;			
+	border		  : solid 1px white;
+	width       : 100%;	
+}
+
+.TecladoVirtual table
+{
+	border-collapse	: collapse;	
+	font		: bold 12px "Lucida Sans", "Lucida Sans Unicode", verdana, arial, sans-serif;		
+}
+
+.TecladoVirtual .InformacaoTecladoVirtual
+{
+	background	    : #f0f0f0;			
+	vertical-align	: middle;
+	border		      : solid 1px white;
+	text-align      : center;
+}
+
+.TecladoVirtual .CamposTecladoVirtual
+{
+	text-align	: center;		
+	border		: solid 1px white;
+	background	: #e0e0e0;
+}
+/********************************** Fim: Estilos para Teclado Virtual **********************************/
+
+/********************************** Início: Estilos para Página Principal **********************************/
+.QuadroInformacao 
+{
+	position	: relative;
+	width		: 100%;
+	background-color: #ffffff;
+	border		: #adaaad 1px solid;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.QuadroSombra 
+{
+	position	: absolute;
+	width		: 100%;
+	height		: 100%;
+	background-color: #bebebe;
+	margin-left	: 8px;
+	margin-top	: 8px;
+}
+
+.TituloQuadro
+{
+	background-color: #d3d3d3;
+	padding		: 3px;
+	font-family	: "Lucida Sans", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
+	font-size	: 12px;
+	color		: #000000;
+	text-align	: center;
+	font-weight	: bold;
+}
+
+.TextoQuadro
+{
+	font-family	: "Lucida Sans", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
+	font-size	: 11px;
+	color		: #000000;
+}
+/********************************** Fim: Estilos para Página Principal **********************************/

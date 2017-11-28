@@ -1,0 +1,230 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="ISO-8859-1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link href="style.css" rel="stylesheet">
+
+    <title>
+        Atualizar Cadastro de Pessoa Física - Dados pessoais -
+        NEL Mobile
+    </title>
+</head>
+
+<body class="">
+
+    <header id="titulos">
+
+        <h1>
+            Atualizar Cadastro de Pessoa Física
+        </h1>
+        <h2>Dados pessoais</h2>
+    </header>
+
+    <section id="conteudo">
+        <!-- In?cio do conteudo -->
+        <div id="DFormulario" class="target target-visible">
+            <form role="form" name="Frm" id="Frm" class="form-block" action="cad_cnt_dig_07_m.asp" method="post" onsubmit="saveData()">
+                <table class="table table-form">
+                    <tr>
+                        <th><label for="TipoDocumento">Tipo de documento</label></th>
+                        <td>
+                            <select id="TipoDocumento" name="TipoDocumento">
+
+
+                                <option value="1">
+                                    Carteira de Identidade
+                                </option>
+
+
+                                <option value="2">
+                                    Carteira de Identificação - Conselho Regulador
+                                </option>
+
+
+                                <option value="3">
+                                    Carteira de Identificação - Forças Armadas
+                                </option>
+
+
+                                <option value="4">
+                                    Carteira de Trabalho e Previdência Social - CTPS
+                                </option>
+
+
+                                <option value="5">
+                                    Carteira Nacional de Habilitação - CNH
+                                </option>
+
+
+                                <option value="6">
+                                    Cédula de Identidade de Estrangeiro - CIE
+                                </option>
+
+
+                                <option value="9">
+                                    Certidão de Nascimento
+                                </option>
+
+
+                                <option value="10">
+                                    Certidão de Óbito
+                                </option>
+
+
+                                <option value="7">
+                                    Certificado de Reservista
+                                </option>
+
+
+                                <option value="8">
+                                    Passaporte
+                                </option>
+
+                        </td>
+                    </tr>
+                    </tr>
+                    <tr>
+                        <th><label for="NumeroDocumento">N&uacute;mero</label></th>
+                        <td><input type="tel" class="uppercase" maxlength="40" id="NumeroDocumento" name="NumeroDocumento" value="" /></td>
+                    </tr>
+                    </tr>
+                    <tr>
+                        <th><label for="OrgaoEmissorDocumento">&Oacute;rg&atilde;o emissor</label></th>
+                        <td><input type="text" class="uppercase" maxlength="40" id="OrgaoEmissorDocumento" name="OrgaoEmissorDocumento" value="" /></td>
+                    </tr>
+                    <tr>
+                        <th><label for="UFDocumento">UF</label></th>
+                        <td>
+                            <span class="input-group">
+                                <input type="text" id="UFDocumento" name="UFDocumento" readonly="readonly" onclick="javascript:location.hash='#DSelecaoUF'" value="" />
+                                <input type="hidden" id="CodigoUFDocumento" name="CodigoUFDocumento" value="" />
+                                <span class="input-group-btn" onclick="javascript:bnb.busca.input=document.getElementById('UFDocumento');location.hash='#DSelecaoUF'">
+                                    <a class="btn btn-default btn-busca">&nbsp;</a>
+                                </span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><label for="DataEmissaoDocumento">Data de emiss&atilde;o</label></th>
+                        <td><input type="text" class="input-data" id="DataEmissaoDocumento" name="DataEmissaoDocumento" value="" /></td>
+                    </tr>
+                </table>
+
+                <footer>
+                    <a type="submit" class="btn btn-avancar" href="preencher7.html">
+                        Continuar
+                    </a>
+                </footer>
+
+            </form>
+        </div>
+        <!-- Final da #DFormulario -->
+        <!-- Final do conteudo -->
+        <!-- Inicio do conteudo UF-->
+
+        <div id="DSelecaoUF" class="target">
+            <p>Selecione a UF</p>
+            <p><input type="search" id="pesquisa" placeholder="Estado" /></p>
+
+            <div class="btn-menu-set" id="lista">
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(12,'AC - ACRE');">AC - ACRE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(27,'AL - ALAGOAS');">AL - ALAGOAS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(16,'AP - AMAPA');">AP - AMAPA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(13,'AM - AMAZONAS');">AM - AMAZONAS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(29,'BA - BAHIA');">BA - BAHIA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(23,'CE - CEARA');">CE - CEARA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(53,'DF - DISTRITO FEDERAL');">DF - DISTRITO FEDERAL</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(32,'ES - ESPIRITO SANTO');">ES - ESPIRITO SANTO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(52,'GO - GOIAS');">GO - GOIAS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(21,'MA - MARANHAO');">MA - MARANHAO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(51,'MT - MATO GROSSO');">MT - MATO GROSSO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(50,'MS - MATO GROSSO DO SUL');">MS - MATO GROSSO DO SUL</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(31,'MG - MINAS GERAIS');">MG - MINAS GERAIS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(15,'PA - PARA');">PA - PARA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(25,'PB - PARAIBA');">PB - PARAIBA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(41,'PR - PARANA');">PR - PARANA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(26,'PE - PERNAMBUCO');">PE - PERNAMBUCO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(22,'PI - PIAUI');">PI - PIAUI</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(33,'RJ - RIO DE JANEIRO');">RJ - RIO DE JANEIRO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(24,'RN - RIO GRANDE DO NORTE');">RN - RIO GRANDE DO NORTE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(43,'RS - RIO GRANDE DO SUL');">RS - RIO GRANDE DO SUL</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(11,'RO - RONDONIA');">RO - RONDONIA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(14,'RR - RORAIMA');">RR - RORAIMA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(42,'SC - SANTA CATARINA');">SC - SANTA CATARINA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(35,'SP - SAO PAULO');">SP - SAO PAULO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(28,'SE - SERGIPE');">SE - SERGIPE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF(17,'TO - TOCANTINS');">TO - TOCANTINS</a>
+
+            </div>
+
+        </div>
+
+        <!-- Final do conteudo UF-->
+    </section>
+
+    <script type="text/javascript" charset="utf-8" src="js/scripts.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/cad_cnt_dig_06_m.min.js"></script>
+
+</body>
+</html>

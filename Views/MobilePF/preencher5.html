@@ -1,0 +1,1098 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="ISO-8859-1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link href="style.css" rel="stylesheet">
+
+    <title>
+        Atualizar Cadastro de Pessoa Física - Dados pessoais -
+        NEL Mobile
+    </title>
+</head>
+
+<body class="">
+
+    <header id="titulos">
+
+        <h1>
+            Atualizar Cadastro de Pessoa Física
+        </h1>
+        <h2>Dados pessoais</h2>
+    </header>
+
+    <section id="conteudo">
+        <!-- In?cio do conteudo -->
+        <div id="DFormulario" class="target target-visible">
+            <form role="form" name="Frm" id="Frm" class="form-block" action="cad_cnt_dig_06_m.asp" method="post" onsubmit="saveData()">
+                <table class="table table-form">
+                    <tr>
+                        <th><label for="GrauInstrucao">Grau de instru&ccedil;&atilde;o</label></th>
+                        <td>
+                            <select id="GrauInstrucao" name="GrauInstrucao">
+
+
+                                <option value="7">1 GRAU COMPLETO</option>
+
+
+                                <option value="4">1 GRAU INCOMP-ATE A 4 SERIE COMPL</option>
+
+
+                                <option value="2">1 GRAU INCOMP-ATE A 4 SERIE CURSAN</option>
+
+
+                                <option value="3">1 GRAU INCOMP-ATE A 4 SERIE INTER</option>
+
+
+                                <option value="5">1 GRAU INCOMP-ATE A 8 SERIE CURSANDO</option>
+
+
+                                <option value="6">1 GRAU INCOMP-ATE A 8 SERIE INTER</option>
+
+
+                                <option value="22">ALFABETIZADO SEM FREQUENTAR ESCOLA</option>
+
+
+                                <option value="1">ANALFABETO *</option>
+
+
+                                <option value="21">CREDITOS DO DOUTORADO</option>
+
+
+                                <option value="17">CREDITOS DO MESTRADO</option>
+
+
+                                <option value="20">DOUTORADO</option>
+
+
+                                <option value="18">DOUTORADO INCOMPLETO CURSANDO</option>
+
+
+                                <option value="19">DOUTORADO INCOMPLETO INTERROMPIDO</option>
+
+
+                                <option value="16">MESTRADO</option>
+
+
+                                <option value="14">MESTRADO INCOMPLETO CURSANDO</option>
+
+
+                                <option value="15">MESTRADO INCOMPLETO INTERROMPIDO</option>
+
+
+                                <option value="10">SEGUNDO GRAU COMPLETO</option>
+
+
+                                <option value="8">SEGUNDO GRAU INCOMPLETO CURSANDO</option>
+
+
+                                <option value="9">SEGUNDO GRAU INCOMPLETO INTERROMPID</option>
+
+
+                                <option value="13">SUPERIOR COMPLETO</option>
+
+
+                                <option value="11">SUPERIOR INCOMPLETO CURSANDO</option>
+
+
+                                <option value="12">SUPERIOR INCOMPLETO INTERROMPIDO</option>
+
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><label for="Profissao">Profiss&atilde;o</label></th>
+                        <td>
+                            <span class="input-group">
+                                <input type="text" id="Profissao" name="Profissao" readonly="readonly" onclick="javascript: location.hash = '#DSelecaoProfissao'" value="" />
+                                <span class="input-group-btn" onclick="javascript: location.hash = '#DSelecaoProfissao'">
+                                    <a class="btn btn-default btn-busca">&nbsp;</a>
+                                </span>
+                                <input type="hidden" id="CodigoProfissao" name="CodigoProfissao" />
+                            </span>
+                        </td>
+                    </tr>
+
+
+                </table>
+                <footer>
+                    <a type="submit" class="btn btn-avancar" href="preencher6.html">
+                        Continuar
+                    </a>
+                </footer>
+
+            </form>
+        </div>
+        <!-- Final da #DFormulario -->
+        <!-- Final do conteudo -->
+        <!-- Início do conteudo Profissoes-->
+
+        <div id="DSelecaoProfissao" class="target">
+            <p>Selecione a profissao</p>
+
+            <p><input type="search" id="pesquisa" placeholder="Profissao" /></p>
+
+            <div>
+                <div class="btn-menu-set" id="lista">
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-11,'QUÍMICO');">QUÍMICO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-12,'FÍSICO');">FÍSICO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-15,'PESQUISADOR(A)');">PESQUISADOR(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-19.30,'METEOROLOGISTA');">METEOROLOGISTA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-19.40,'ASTRÔNOMO(A)');">ASTRÔNOMO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-20.40,'ENGENHEIRO(A) FLORESTAL');">ENGENHEIRO(A) FLORESTAL</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-20.60,'ENGENHEIRO(A) DE PESCA');">ENGENHEIRO(A) DE PESCA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-21.10,'ENGENHEIRO(A) CIVIL');">ENGENHEIRO(A) CIVIL</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-21.20,'ENGENHEIRO(A) AGRÔNOMO');">ENGENHEIRO(A) AGRÔNOMO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-21.21,'ENGENHEIRO(A) AGRÍCOLA');">ENGENHEIRO(A) AGRÍCOLA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-21.75,'ARQUITETO(A)');">ARQUITETO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-21.80,'URBANISTA');">URBANISTA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-22,'ENGENH.OPERAÇÕES E DESENHISTAS INDUSTRIAIS');">ENGENH.OPERAÇÕES E DESENHISTAS INDUSTRIAIS</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-22.60,'ENGENHEIRO(A) DE OPERAÇÃO (TÊXTIL)');">ENGENHEIRO(A) DE OPERAÇÃO (TÊXTIL)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-23.05,'ENGENHEIRO(A) ELETRICISTA');">ENGENHEIRO(A) ELETRICISTA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-23.10,'ENGENHEIRO(A) ELETRÔNICO(A)');">ENGENHEIRO(A) ELETRÔNICO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-23.40,'ENGENHEIRO(A) DE TELECOMUNICAÇÕES');">ENGENHEIRO(A) DE TELECOMUNICAÇÕES</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-24,'ENGENHEIRO(A) MECÂNICO');">ENGENHEIRO(A) MECÂNICO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-24.50,'ENGENHEIRO(A) NAVAL');">ENGENHEIRO(A) NAVAL</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-24.60,'ENGENHEIRO(A) AERONÁUTICO');">ENGENHEIRO(A) AERONÁUTICO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-25,'ENGENHEIRO(A) QUÍMICO');">ENGENHEIRO(A) QUÍMICO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-25.20,'ENGENHEIRO QUÍMICO(A)');">ENGENHEIRO QUÍMICO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-26,'ENGENHEIRO(A) METALÚRGICO');">ENGENHEIRO(A) METALÚRGICO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-27.10,'ENGENHEIRO(A) DE MINAS');">ENGENHEIRO(A) DE MINAS</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-27.50,'GEÓLOGO(A)');">GEÓLOGO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-28.30,'ENGENHEIRO(A) DE PRODUÇÃO');">ENGENHEIRO(A) DE PRODUÇÃO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-29.35,'ENGENHEIRO AGRIMENSOR');">ENGENHEIRO AGRIMENSOR</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-29.40,'ENGENH.(A) TECNÓLOGO ALIMENTOS E BEBIDAS');">ENGENH.(A) TECNÓLOGO ALIMENTOS E BEBIDAS</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-30.20,'TÉCNICO(A) DE CONTABILIDADE');">TÉCNICO(A) DE CONTABILIDADE</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-30.30,'TÉCNICO(A) DE ESTATÍSTICA');">TÉCNICO(A) DE ESTATÍSTICA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-31,'TÉCNICO(A) DE BIOLOGIA, AGRONOMIA');">TÉCNICO(A) DE BIOLOGIA, AGRONOMIA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-32,'TÉCN.OBRAS CIVIS, AGRIMENSURA,ESTRADA');">TÉCN.OBRAS CIVIS, AGRIMENSURA,ESTRADA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-33,'TÉCNICO MINERAÇÃO, METALURGIA/GEOLOGIA');">TÉCNICO MINERAÇÃO, METALURGIA/GEOLOGIA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-34,'TÉCN.ELETRICIDADE,ELETRÔNICA/TELECOMUNICAÇÕES');">TÉCN.ELETRICIDADE,ELETRÔNICA/TELECOMUNICAÇÕES</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-35,'TÉCNICO(A) DE MECÂNICA');">TÉCNICO(A) DE MECÂNICA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-36,'TÉCNICO(A) DE QUÍMICA');">TÉCNICO(A) DE QUÍMICA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-37,'TÉCNICO TÊXTIL');">TÉCNICO TÊXTIL</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-38,'DESENHISTA TÉCNICO');">DESENHISTA TÉCNICO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-39.83,'TÉCNICO GRÁFICO');">TÉCNICO GRÁFICO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-40,'ELABORADOR(A) DE PROJETOS');">ELABORADOR(A) DE PROJETOS</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-41,'PILOTO  COMERCIAL (LINHAS AÉREAS)');">PILOTO  COMERCIAL (LINHAS AÉREAS)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-42.15,'COMAND.EMBARCAÇÕES(NAVEGAÇÃO MARÍTIMA)');">COMAND.EMBARCAÇÕES(NAVEGAÇÃO MARÍTIMA)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-51.10,'BIOLOGISTA');">BIOLOGISTA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-51.20,'BOTÂNICO(A)');">BOTÂNICO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-52,'BACTERIOLOGISTA, FARMACOLOGISTA');">BACTERIOLOGISTA, FARMACOLOGISTA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-61,'MÉDICO(A)');">MÉDICO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-63,'CIRURGIÃO-DENTISTA');">CIRURGIÃO-DENTISTA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-63.60,'CIRURGIÃO-DENTISTA(A) (PRÓTESE)');">CIRURGIÃO-DENTISTA(A) (PRÓTESE)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-64,'ORTODONTISTA OU ODONTÓLOGO');">ORTODONTISTA OU ODONTÓLOGO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-65.10,'MÉDICO VETERINÁRIO(A)');">MÉDICO VETERINÁRIO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-65.40,'ZOOTECNISTA');">ZOOTECNISTA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-67,'FARMACÊUTICO(A)');">FARMACÊUTICO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-68.10,'NUTRICIONISTA');">NUTRICIONISTA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-71,'ENFERMEIRO(A)');">ENFERMEIRO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-72,'TÉCNICO(A) DE ENFERMAGEM');">TÉCNICO(A) DE ENFERMAGEM</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-73,'ASSISTENTE  SOCIAL');">ASSISTENTE  SOCIAL</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-74,'PSICÓLOGO(A)');">PSICÓLOGO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-75,'ORTOPTISTA E ÓPTICO');">ORTOPTISTA E ÓPTICO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-76.20,'FISIOTERAPEUTA');">FISIOTERAPEUTA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-76.30,'TERAPEUTA OCUPACIONAL');">TERAPEUTA OCUPACIONAL</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-77,'OPER.EQUIPAM.MÉDICOS/ODONTOLÓGICOS');">OPER.EQUIPAM.MÉDICOS/ODONTOLÓGICOS</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-79.25,'FONOAUDIÓLOGO(A)');">FONOAUDIÓLOGO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-81,'ESTATÍSTICO');">ESTATÍSTICO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-82,'MATEMÁTICO E ATUÁRIO');">MATEMÁTICO E ATUÁRIO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-83,'ANALISTA DE SISTEMAS');">ANALISTA DE SISTEMAS</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-84,'PROGRAMADOR DE COMPUTADOR');">PROGRAMADOR DE COMPUTADOR</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-91,'ECONOMISTA');">ECONOMISTA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-92,'ADMINISTRADOR(A)');">ADMINISTRADOR(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0-93,'CONTADOR(A)');">CONTADOR(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0.00,'MICROEMPREENDEDOR(A)');">MICROEMPREENDEDOR(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(0019255,'HISTORIADOR(A)');">HISTORIADOR(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1-21,'ADVOGADO(A)');">ADVOGADO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1-29,'JURISTA NÃO CLASSIF.SOB OUTRAS EPÍGRAFES');">JURISTA NÃO CLASSIF.SOB OUTRAS EPÍGRAFES</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1-3,'PROFESSOR(A)');">PROFESSOR(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1-49.45,'PEDAGOGO E EDUCADOR(A)');">PEDAGOGO E EDUCADOR(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1-51,'ESCRITOR E CRÍTICO');">ESCRITOR E CRÍTICO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1-52,'JORNALISTA E REDATOR(A)');">JORNALISTA E REDATOR(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1-53,'LOCUTOR E COMENT(A) RÁDIO E TELEVISÃO');">LOCUTOR E COMENT(A) RÁDIO E TELEVISÃO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1-59,'ESCRITOR(A) JORNALISTA, REDATOR, LOCUTOR');">ESCRITOR(A) JORNALISTA, REDATOR, LOCUTOR</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1-59.47,'AGENTE PUBLICITÁRIO');">AGENTE PUBLICITÁRIO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1-59.49,'TÉCNICO(A) DE MARKETING E PROPAGANDA');">TÉCNICO(A) DE MARKETING E PROPAGANDA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1-59.55,'RELAÇÕES PÚBLICAS');">RELAÇÕES PÚBLICAS</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1-61,'ESCULTOR, PINTOR(A)');">ESCULTOR, PINTOR(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1-63,'FOTÓGRAFO, OPER(A).CÂMERAS CINEMA/VÍDEO');">FOTÓGRAFO, OPER(A).CÂMERAS CINEMA/VÍDEO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1-65,'RESTAURADOR');">RESTAURADOR</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1-70,'EMPRESÁRIO(A)');">EMPRESÁRIO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1-71,'COMPOSITOR(A) MÚSICO E CANTOR');">COMPOSITOR(A) MÚSICO E CANTOR</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1-71.40,'MÚSICO');">MÚSICO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1-72,'COREÓGRAFO E BAILARINO(A)');">COREÓGRAFO E BAILARINO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1-73,'ATOR DIRETOR(A) DE ESPETÁCULOS');">ATOR DIRETOR(A) DE ESPETÁCULOS</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1-74,'EMPRESÁRIO E PRODUTOR ESPETÁCULOS');">EMPRESÁRIO E PRODUTOR ESPETÁCULOS</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1-74.30,'PRODUTOR CINEMATOGRÁFICO');">PRODUTOR CINEMATOGRÁFICO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1-75,'ARTISTA DE CIRCO');">ARTISTA DE CIRCO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1-76,'PROFISSIONAL ESPETÁCULOS ARTÍSTICOS');">PROFISSIONAL ESPETÁCULOS ARTÍSTICOS</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1-77,'HUMORISTA, ANIMADOR(A)');">HUMORISTA, ANIMADOR(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1-78,'ARTISTA PLÁSTICO');">ARTISTA PLÁSTICO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1-81,'TÉCNICO DESPORTIVO');">TÉCNICO DESPORTIVO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1-82,'ATLETA PROFISSIONAL');">ATLETA PROFISSIONAL</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1-89.20,'ÁRBITRO DESPORTIVO(A)');">ÁRBITRO DESPORTIVO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1-91.20,'BIBLIOTECÁRIO(A)');">BIBLIOTECÁRIO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1-91.40,'MUSEÓLOGO(A)');">MUSEÓLOGO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1-92.20,'SOCIÓLOGO(A)');">SOCIÓLOGO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1-92.25,'ECONOMISTA DOMÉSTICO');">ECONOMISTA DOMÉSTICO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1-92.45,'ARQUEÓLOGO(A)');">ARQUEÓLOGO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1-92.50,'GEÓGRAFO(A)');">GEÓGRAFO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1-92.55,'HISTORIADOR(A)');">HISTORIADOR(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1-95,'FILÓLOGO, TRADUTOR E INTÉRPRETE');">FILÓLOGO, TRADUTOR E INTÉRPRETE</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1-96,'ANALISTA DE OCUPAÇÕES');">ANALISTA DE OCUPAÇÕES</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1-96.20,'MINISTRO DE CULTO RELIGIOSO');">MINISTRO DE CULTO RELIGIOSO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1-98.50,'TÉCNICO DE SEGURO');">TÉCNICO DE SEGURO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(10,'MEMB. FORÇAS ARMADAS, POLIC.E BOMBEIROS');">MEMB. FORÇAS ARMADAS, POLIC.E BOMBEIROS</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(105,'PENSIONISTA');">PENSIONISTA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(110,'PORTUÁRIO');">PORTUÁRIO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(111,'PRENDAS DO LAR');">PRENDAS DO LAR</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1111-20,'VEREADOR');">VEREADOR</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(117,'PROPRIETÁRIO(A) CAMINHÃO DE CARGA');">PROPRIETÁRIO(A) CAMINHÃO DE CARGA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(118,'PROPRIETÁRIO(A) DE IMÓVEL');">PROPRIETÁRIO(A) DE IMÓVEL</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(119,'PROPRIETÁRIO(A) DE TAXI');">PROPRIETÁRIO(A) DE TAXI</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(12,'APOSENTADO(A)');">APOSENTADO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(1210,'DIRETORES(A) GERAIS');">DIRETORES(A) GERAIS</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(127,'SANITARISTA');">SANITARISTA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(132,'SERVIDOR CIVIL APOSENTADO(A)');">SERVIDOR CIVIL APOSENTADO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(133,'SERVIDOR(A) CIVIL ESTADUAL');">SERVIDOR(A) CIVIL ESTADUAL</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(134,'SERVIDOR(A) CIVIL FEDERAL');">SERVIDOR(A) CIVIL FEDERAL</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(135,'SERVIDOR(A) CIVIL MUNICIPAL');">SERVIDOR(A) CIVIL MUNICIPAL</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(137,'SERVIDOR MILITAR REFORMADO(A)');">SERVIDOR MILITAR REFORMADO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(141,'TÉCNICO(A) DE BIOLOGIA');">TÉCNICO(A) DE BIOLOGIA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(150,'TRABALHADOR(A) DA PESCA');">TRABALHADOR(A) DA PESCA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(152,'TRABALHADOR PECUARISTA');">TRABALHADOR PECUARISTA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(153,'VENDEDOR AUTÔNOMO(A)');">VENDEDOR AUTÔNOMO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(17,'ARTESÃO(A)');">ARTESÃO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(182,'EMPREGADO(A) EMPRESA SETOR PRIVADO');">EMPREGADO(A) EMPRESA SETOR PRIVADO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(183,'PROPRIETÁRIO(A) EMPRESA/EMPREGADOR TITULAR');">PROPRIETÁRIO(A) EMPRESA/EMPREGADOR TITULAR</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(184,'SERV(A).PÚBLICO ADMINISTRAÇÃO DIRETA');">SERV(A).PÚBLICO ADMINISTRAÇÃO DIRETA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(185,'SERV(A) PÚBLICO AUTARQUIA/FUNDAÇÃO');">SERV(A) PÚBLICO AUTARQUIA/FUNDAÇÃO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(186,'FUNCION(A).EMPR.PÚBLICA/ECONOMIA MISTA');">FUNCION(A).EMPR.PÚBLICA/ECONOMIA MISTA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(2-11,'MEMBR.SUPERIOR PODER LEGISLATIVO');">MEMBR.SUPERIOR PODER LEGISLATIVO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(2-12,'MEMBRO SUPERIOR PODER EXECUTIVO');">MEMBRO SUPERIOR PODER EXECUTIVO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(2-13,'FUNCIONÁRIO(A) PÚBLICO SUPERIOR');">FUNCIONÁRIO(A) PÚBLICO SUPERIOR</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(2-14,'MEMB.SUPER. DO PODER JUDIC. (DESEMBARGADOR)');">MEMB.SUPER. DO PODER JUDIC. (DESEMBARGADOR)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(2-21,'DIPLOMATA');">DIPLOMATA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(2-31,'DIRETOR DE EMPRESA MANUFATUREIRA');">DIRETOR DE EMPRESA MANUFATUREIRA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(2-32,'DIR, .EMPRESA AGROPECUÁRIA, PESQUEIRA');">DIR, .EMPRESA AGROPECUÁRIA, PESQUEIRA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(2-33,'DIRETOR EMPR.PRODUÇÃO E DISTRIBUIÇÃO');">DIRETOR EMPR.PRODUÇÃO E DISTRIBUIÇÃO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(2-34,'DIRETOR EMPRESA CONSTRUÇÃO CIVIL');">DIRETOR EMPRESA CONSTRUÇÃO CIVIL</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(2-35,'DIRETOR EMPRESA COMÉRCIO ATACADISTA');">DIRETOR EMPRESA COMÉRCIO ATACADISTA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(2-37,'BANQUEIRO(A)');">BANQUEIRO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(2-38,'DIRETOR EMPR.SERVIÇOS COMUNITÁRIOS');">DIRETOR EMPR.SERVIÇOS COMUNITÁRIOS</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(2-39,'DIRETOR DE PARTIDO POLÍTICO');">DIRETOR DE PARTIDO POLÍTICO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(2-41,'GERENTE ADMINISTRATIVO');">GERENTE ADMINISTRATIVO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(2-42,'GER.PRODUÇÃO, PLANEJAMENTO E PESQUISA');">GER.PRODUÇÃO, PLANEJAMENTO E PESQUISA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(2-43,'GERENTE FINANC., COMERCIAL, MARKETING');">GERENTE FINANC., COMERCIAL, MARKETING</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(2149-15,'ENGENHEIRO DE SEGURANÇA DO TRABALHO');">ENGENHEIRO DE SEGURANÇA DO TRABALHO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(2211-05,'BIOMEDICO(A)');">BIOMEDICO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(2422-35,'PROMOTOR DE JUSTIÇA');">PROMOTOR DE JUSTIÇA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(2531-15,'PUBLICITÁRIO(A)');">PUBLICITÁRIO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3-01,'CHEFE  INTERMEDIÁRIO  ADMINISTRATIVO');">CHEFE  INTERMEDIÁRIO  ADMINISTRATIVO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3-02,'CHEFE INTERM.CONTABILIDADE E FINANÇAS');">CHEFE INTERM.CONTABILIDADE E FINANÇAS</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3-1,'AGENTE ADMINIST. EMPRESAS PÚBLICAS');">AGENTE ADMINIST. EMPRESAS PÚBLICAS</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3-10,'TÉCNICO DE AUDITORIA, INSPEÇÃO');">TÉCNICO DE AUDITORIA, INSPEÇÃO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3-11,'AG. ADMINISTRATIVO, ASSIST. ADMINISTRATIVO');">AG. ADMINISTRATIVO, ASSIST. ADMINISTRATIVO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3-12,'TÉCN./FISCAL TRIBUTAÇÃO E ARRECADAÇÃO');">TÉCN./FISCAL TRIBUTAÇÃO E ARRECADAÇÃO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3-13,'AGENTE SUPERIOR DE POLÍCIA');">AGENTE SUPERIOR DE POLÍCIA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3-14,'SERVENTUÁRIO(A) DA JUSTIÇA');">SERVENTUÁRIO(A) DA JUSTIÇA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3-14.20,'TABELIÃO(A)');">TABELIÃO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3-14.25,'ESCREVENTE');">ESCREVENTE</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3-15,'TÉCNICO(A) DE TESOURARIA');">TÉCNICO(A) DE TESOURARIA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3-16,'TÉCNICO(A)  DE ALMOXARIFADO');">TÉCNICO(A)  DE ALMOXARIFADO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3-17,'TÉCNICO(A) DE MICROFILMAGEM');">TÉCNICO(A) DE MICROFILMAGEM</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3-21,'SECRETÁRIO(A)');">SECRETÁRIO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3-23.20,'DATILÓGRAFO(A)');">DATILÓGRAFO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3-23.30,'ESTENÓGRAFO(A)');">ESTENÓGRAFO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3-31,'AUXILIAR DE CONTABILIDADE, CAIXA');">AUXILIAR DE CONTABILIDADE, CAIXA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3-32,'ATENDENTE DE GUICHÊ, BILHETEIRO');">ATENDENTE DE GUICHÊ, BILHETEIRO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3-40,'OPERADOR FINANCEIRO');">OPERADOR FINANCEIRO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3-41,'OPERADOR(A) MÁQ.CONTÁBEIS/DE CALCULAR');">OPERADOR(A) MÁQ.CONTÁBEIS/DE CALCULAR</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3-42,'OPER(A) MÁQ.PROCESSAMENTO AUTOMÁTICO');">OPER(A) MÁQ.PROCESSAMENTO AUTOMÁTICO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3-42.40,'DIGITADOR(A)');">DIGITADOR(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3-43,'PERFURADOR/CONFERIDOR (CARTÕES/FITAS)');">PERFURADOR/CONFERIDOR (CARTÕES/FITAS)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3-44,'TÉCNICO(A) CONTROLE PRODUÇÃO/OPERAÇÃO');">TÉCNICO(A) CONTROLE PRODUÇÃO/OPERAÇÃO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3-51,'AG.ESTAÇÃO E MOVIMENTO (SERV.FUNERÁRIOS)');">AG.ESTAÇÃO E MOVIMENTO (SERV.FUNERÁRIOS)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3-52,'CHEFE SERV.CORREIOS E TELECOMUNICAÇÕES');">CHEFE SERV.CORREIOS E TELECOMUNICAÇÕES</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3-53,'CHEFE SERV.AÉREOS, CONTROLAD.TRÁFEGO');">CHEFE SERV.AÉREOS, CONTROLAD.TRÁFEGO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3-54,'CHEFE,INSPETOR SERVIÇOS TRANSPORTE');">CHEFE,INSPETOR SERVIÇOS TRANSPORTE</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3-60,'DESPACHANTE, FISCAL,COBRADOR TRANSP.URBANOS');">DESPACHANTE, FISCAL,COBRADOR TRANSP.URBANOS</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3-70,'CLASSIFIC.CORRESPONDÊNCIA, CARTEIRO');">CLASSIFIC.CORRESPONDÊNCIA, CARTEIRO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3-80,'TELEFONISTA, TELEGRAFISTA');">TELEFONISTA, TELEGRAFISTA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3-91,'TRABALH.SERVIÇOS DE ABASTECIMENTO');">TRABALH.SERVIÇOS DE ABASTECIMENTO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3-93.10,'AUXILIAR DE ESCRITÓRIO');">AUXILIAR DE ESCRITÓRIO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3-93.15,'ESCRITURÁRIO DE BANCO(A)');">ESCRITURÁRIO DE BANCO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3-94,'RECEPCIONISTA');">RECEPCIONISTA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3-95,'ARQUIVISTA');">ARQUIVISTA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3-96,'ASCENSORISTA');">ASCENSORISTA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3121-05,'TÉCNICO DE EDIFICAÇÕES');">TÉCNICO DE EDIFICAÇÕES</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3132-20,'TÉCN.MANUT.EQUIPAMENTOS INFORMÁTICA');">TÉCN.MANUT.EQUIPAMENTOS INFORMÁTICA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(31425,'ESCREVENTE');">ESCREVENTE</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3211-10,'TECNICO AGROPECUÁRIO');">TECNICO AGROPECUÁRIO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3222-30,'AUXILIAR DE ENFERMAGEM');">AUXILIAR DE ENFERMAGEM</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(33,'CAPITALISTA COM RENDIM. APLIC. FINANC.');">CAPITALISTA COM RENDIM. APLIC. FINANC.</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(335,'TURISMÓLOGO(A) - BACHAREL EM TURISMO');">TURISMÓLOGO(A) - BACHAREL EM TURISMO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(3532-30,'TESOUREIRO');">TESOUREIRO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(39,'CONSULTOR(A) DE EMPRESAS');">CONSULTOR(A) DE EMPRESAS</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(4,'AGENCIADOR DE PROPAGANDA');">AGENCIADOR DE PROPAGANDA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(4-10,'COMERCIANTE');">COMERCIANTE</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(4-21,'SUPERVISOR(A) DE VENDA');">SUPERVISOR(A) DE VENDA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(4-22,'SUPERVISOR(A) DE COMPRAS/COMPRADOR');">SUPERVISOR(A) DE COMPRAS/COMPRADOR</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(4-31,'AGENTE E INSPETOR TÉCNICOS DE VENDAS');">AGENTE E INSPETOR TÉCNICOS DE VENDAS</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(4-32,'VENDEDOR(A) PRACISTA, REPRES.COMERCIAL');">VENDEDOR(A) PRACISTA, REPRES.COMERCIAL</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(4-32.30,'REPRESENTANTE COMERCIAL');">REPRESENTANTE COMERCIAL</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(4-41,'CORRETOR(A) SEGUROS, IMÓVEIS E TÍTULOS');">CORRETOR(A) SEGUROS, IMÓVEIS E TÍTULOS</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(4-42,'AGENTE VENDA SERVIÇOS ÀS EMPRESAS');">AGENTE VENDA SERVIÇOS ÀS EMPRESAS</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(4-43,'LEILOEIRO, AVALIADOR(A)');">LEILOEIRO, AVALIADOR(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(4-5,'COMERCIÁRIO(A)');">COMERCIÁRIO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(4-51,'VENDEDOR(A) COMÉRCIO ATACADISTA/VAREJISTA');">VENDEDOR(A) COMÉRCIO ATACADISTA/VAREJISTA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(4-52,'VEND(A) AMBULANTE, VENDEDOR A DOMICÍLIO');">VEND(A) AMBULANTE, VENDEDOR A DOMICÍLIO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(4-52.40,'JORNALEIRO(A)');">JORNALEIRO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(4-53,'DEMONSTRADOR(A)');">DEMONSTRADOR(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(4-53.30,'MODELO DE MODAS');">MODELO DE MODAS</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(4-54,'DECORADOR(A)');">DECORADOR(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(4-90.40,'FEIRANTE');">FEIRANTE</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(4101-05,'COORDENADOR(A)');">COORDENADOR(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(4132-25,'BANCÁRIO');">BANCÁRIO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(5-0,'GERENTE DE HOTÉIS, RESTAURANTES, BARES');">GERENTE DE HOTÉIS, RESTAURANTES, BARES</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(5-20,'MORDOMO, GOVERNANTA');">MORDOMO, GOVERNANTA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(5-20.70,'GOVERNANTA (HOTELARIA)');">GOVERNANTA (HOTELARIA)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(5-25,'ENTREGADOR(A) CONTÍNUO');">ENTREGADOR(A) CONTÍNUO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(5-31,'COZINHEIRO(A)');">COZINHEIRO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(5-32,'GARÇOM, BARMEN');">GARÇOM, BARMEN</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(5-32.10,'GARÇOM');">GARÇOM</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(5-34,'FRENTISTA');">FRENTISTA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(5-40,'TRABALH.SERVENTIA (DOMICÍLIOS E HOTÉIS)');">TRABALH.SERVENTIA (DOMICÍLIOS E HOTÉIS)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(5-40.20,'EMPREGADO DOMÉSTICO(A)');">EMPREGADO DOMÉSTICO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(5-40.50,'CAMAREIRO(A) (HOTEL)');">CAMAREIRO(A) (HOTEL)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(5-40.55,'PORTEIRO (HOTEL)');">PORTEIRO (HOTEL)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(5-41,'COMISSÁRIO(A)-SERV.TRANSPORTE PASSAGEIROS');">COMISSÁRIO(A)-SERV.TRANSPORTE PASSAGEIROS</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(5-51,'TRABALH. SERV. ADMINISTR. CONDOMÍNIOS');">TRABALH. SERV. ADMINISTR. CONDOMÍNIOS</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(5-51.25,'PORTEIRO DE EDIFÍCIO');">PORTEIRO DE EDIFÍCIO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(5-51.35,'GARAGISTA');">GARAGISTA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(5-52,'TRABALH.SERV.CONSERVAÇÃO,MANUTENÇÃO');">TRABALH.SERV.CONSERVAÇÃO,MANUTENÇÃO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(5-52.20,'FAXINEIRO(A)');">FAXINEIRO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(5-60,'LAVADEIRO, TINTUREIRO(A)');">LAVADEIRO, TINTUREIRO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(5-70,'CABELEIREIRO(A), ESPECIALISTA TRATAMENTOS');">CABELEIREIRO(A), ESPECIALISTA TRATAMENTOS</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(5-72,'PES.ENFERMAGEM, PARTEIRA, LABORATÓRIOS');">PES.ENFERMAGEM, PARTEIRA, LABORATÓRIOS</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(5-81,'BOMBEIRO(A)');">BOMBEIRO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(5-82,'POLICIAL');">POLICIAL</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(5-83,'GUARDA DE SEGURANÇA');">GUARDA DE SEGURANÇA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(5-84,'GUARDA DE TRÂNSITO');">GUARDA DE TRÂNSITO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(5-91,'AGENTE DE VIAGENS E GUIA DE TURISMO');">AGENTE DE VIAGENS E GUIA DE TURISMO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(5-92,'AG.SERV.FUNERÁRIOS/EMBALSAMAMENTOS');">AG.SERV.FUNERÁRIOS/EMBALSAMAMENTOS</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(50,'DESENHISTA COMERCIAL');">DESENHISTA COMERCIAL</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(51,'DESENHISTA INDUSTRIAL');">DESENHISTA INDUSTRIAL</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(5143,'AUXILIAR DE SERVICOS GERAIS');">AUXILIAR DE SERVICOS GERAIS</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(5191-10,'MOTOBOY');">MOTOBOY</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(58,'EMPREGADO(A) DE EMPRESA LIGADA AO BNB');">EMPREGADO(A) DE EMPRESA LIGADA AO BNB</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(6-0,'ADMINISTR./CAPATAZ EXPLOR. AGROPECUÁRIAS');">ADMINISTR./CAPATAZ EXPLOR. AGROPECUÁRIAS</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(6-1,'PRODUTOR(A) AGROPECUÁRIO');">PRODUTOR(A) AGROPECUÁRIO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(6-11.10,'PRODUTOR(A) AGROPECUÁRIO');">PRODUTOR(A) AGROPECUÁRIO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(6-12.15,'AGRICULTOR(A)');">AGRICULTOR(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(6-3,'TRABALHADOR(A)  AGRÍCOLA ESPECIALIZADO');">TRABALHADOR(A)  AGRÍCOLA ESPECIALIZADO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(6-4,'TRABALHADOR DA PECUÁRIA');">TRABALHADOR DA PECUÁRIA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(6-5,'TRABALHADOR(A) FLORESTAL');">TRABALHADOR(A) FLORESTAL</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(6-6,'PESCADOR(A)');">PESCADOR(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(6-63.20,'PESCADOR(A) ARTESANAL');">PESCADOR(A) ARTESANAL</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(6-7,'OPERADOR MÁQ./IMPLEMENTOS AGRICULTURA');">OPERADOR MÁQ./IMPLEMENTOS AGRICULTURA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(6313-25,'PISCICULTOR');">PISCICULTOR</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(67,'ESTUDANTE');">ESTUDANTE</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(7-0,'MESTRE, CONTRAMESTRE, SUPERV.PRODUÇÃO');">MESTRE, CONTRAMESTRE, SUPERV.PRODUÇÃO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(7-01.83,'MESTRE (CONSTRUÇÃO CIVIL)');">MESTRE (CONSTRUÇÃO CIVIL)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(7-1,'TRABALH.DE MINAS E PEDREIRAS/SONDADORES');">TRABALH.DE MINAS E PEDREIRAS/SONDADORES</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(7-19.20,'GARIMPEIRO');">GARIMPEIRO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(7-2,'TRABALH.METALÚRGICO E SIDERÚRGICO');">TRABALH.METALÚRGICO E SIDERÚRGICO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(7-3,'TRABALH.TRATAM.MADEIRA E FABRIC.MÓVEIS');">TRABALH.TRATAM.MADEIRA E FABRIC.MÓVEIS</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(7-4,'OPERADOR INSTALAÇÕES PROCESS.QUÍMICOS');">OPERADOR INSTALAÇÕES PROCESS.QUÍMICOS</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(7-5,'FIANDEIRO, TECELÃO, TINGIDOR(A)');">FIANDEIRO, TECELÃO, TINGIDOR(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(7-50,'MINERADOR');">MINERADOR</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(7-6,'TRABALHADOR DE CURTIMENTO');">TRABALHADOR DE CURTIMENTO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(7-7,'TRABALH(A).PREPARAÇÃO ALIMENTOS/BEBIDAS');">TRABALH(A).PREPARAÇÃO ALIMENTOS/BEBIDAS</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(7-8,'TRABALH.TRATAM.FUMO E FABRIC.CIGARROS');">TRABALH.TRATAM.FUMO E FABRIC.CIGARROS</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(7-9,'TRABALHADOR DE COSTURA, ESTOFADOR');">TRABALHADOR DE COSTURA, ESTOFADOR</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(7-91,'COSTUREIRO(A) E MODISTA');">COSTUREIRO(A) E MODISTA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(7-97,'COSTUREIRA/BORDADEIRA');">COSTUREIRA/BORDADEIRA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(79,'INDUSTRIÁRIO(A)');">INDUSTRIÁRIO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(8-0,'TRABALH.FABRICAÇÃO CALÇADOS/ART.COURO');">TRABALH.FABRICAÇÃO CALÇADOS/ART.COURO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(8-01,'SAPATEIRO');">SAPATEIRO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(8-1,'MARCENEIRO, OPER. MÁQUINAS DE LAVRAR');">MARCENEIRO, OPER. MÁQUINAS DE LAVRAR</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(8-11.10,'MARCENEIRO(A)');">MARCENEIRO(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(8-11.11,'SERRALHEIRO');">SERRALHEIRO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(8-2,'CORTADOR, POLIDOR,GRAVADOR DE PEDRAS');">CORTADOR, POLIDOR,GRAVADOR DE PEDRAS</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(8-3,'TRABALHADOR DA USINAGEM DE METAIS');">TRABALHADOR DA USINAGEM DE METAIS</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(8-4,'AJUSTADOR MECÂNICO,MONTADOR E MECÂNICO');">AJUSTADOR MECÂNICO,MONTADOR E MECÂNICO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(8-43,'MECÂNICO MANUT. VEÍC. AUTOMOTORES');">MECÂNICO MANUT. VEÍC. AUTOMOTORES</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(8-5,'ELETRICISTA, ELETRÔNICO');">ELETRICISTA, ELETRÔNICO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(8-6,'OPERADOR ESTAÇÕES RÁDIO E TELEVISÃO');">OPERADOR ESTAÇÕES RÁDIO E TELEVISÃO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(8-7,'ENCANADOR, SOLDADOR, CHAPEADOR, CALDEIR');">ENCANADOR, SOLDADOR, CHAPEADOR, CALDEIR</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(8-8,'JOALHEIRO(A) E OURIVES');">JOALHEIRO(A) E OURIVES</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(8-9,'VIDREIRO, CERAMISTA');">VIDREIRO, CERAMISTA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(83,'JUIZ(A) DE DIREITO');">JUIZ(A) DE DIREITO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(9-0,'TRABALH.FABRICAÇÃO PRODUTOS DE BOUTIQUE');">TRABALH.FABRICAÇÃO PRODUTOS DE BOUTIQUE</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(9-1,'CONFECCION.PRODUTOS PAPEL E PAPELÃO');">CONFECCION.PRODUTOS PAPEL E PAPELÃO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(9-2,'TRABALHADOR DAS ARTES GRÁFICAS');">TRABALHADOR DAS ARTES GRÁFICAS</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(9-25,'SERIGRAFISTA');">SERIGRAFISTA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(9-3,'PINTOR(A)');">PINTOR(A)</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(9-4,'TRABALHADOR CONF.INSTRUM.MUSICAIS');">TRABALHADOR CONF.INSTRUM.MUSICAIS</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(9-5,'TRABALHADOR DA CONSTRUÇÃO CIVIL');">TRABALHADOR DA CONSTRUÇÃO CIVIL</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(9-51,'PEDREIRO E ESTUCADOR');">PEDREIRO E ESTUCADOR</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(9-6,'OPERADOR MÁQUINAS FIXAS E EQUIPAMENTOS');">OPERADOR MÁQUINAS FIXAS E EQUIPAMENTOS</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(9-7,'TRABALH.MOVIMENT/MANIPULAÇÃO DA TERRA');">TRABALH.MOVIMENT/MANIPULAÇÃO DA TERRA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(9-71,'ESTIVADOR, CARREG., EMBALADOR, PORTUÁRIO');">ESTIVADOR, CARREG., EMBALADOR, PORTUÁRIO</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(9-8,'CONDUTOR DE VEÍCULOS DE TRANSPORTE');">CONDUTOR DE VEÍCULOS DE TRANSPORTE</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(9-81.20,'CONTRAMESTRE DE EMBARCAÇÕES');">CONTRAMESTRE DE EMBARCAÇÕES</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(9-83,'MAQUINISTA/FOGUISTA LOCOMOTIVAS, EMBARCAÇÕES');">MAQUINISTA/FOGUISTA LOCOMOTIVAS, EMBARCAÇÕES</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(9-85.10,'MOTORISTA');">MOTORISTA</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(9-9,'TRABALH.NÃO-CLASSIFIC.SOB OUTRAS EPÍGRAFES');">TRABALH.NÃO-CLASSIFIC.SOB OUTRAS EPÍGRAFES</a>
+
+
+                    <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarProfissao(93,'MINISTRO DO TRIBUNAL');">MINISTRO DO TRIBUNAL</a>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Final do conteudo Profissoes-->
+
+    </section>
+
+    <script type="text/javascript" charset="utf-8" src="js/scripts.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/cad_cnt_dig_05_m.min.js"></script>
+
+</body>
+</html>

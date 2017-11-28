@@ -1,0 +1,789 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="ISO-8859-1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link href="style.css" rel="stylesheet">
+
+    <title>
+        Atualizar Cadastro de Pessoa Física - Endere&ccedil;o -
+        NEL Mobile
+    </title>
+</head>
+
+<body class="">
+
+    <header id="titulos">
+
+        <h1>
+            Atualizar Cadastro de Pessoa Física
+        </h1>
+        <h2>Endere&ccedil;o</h2>
+    </header>
+
+    <section id="conteudo">
+        <!-- In?cio do conteudo -->
+        <div id="DFormulario" class="target target-visible">
+            <form role="form" name="Frm" id="Frm" class="form-block" action="cad_cnt_dig_09_m.asp" method="post" onsubmit="saveData()">
+                <table class="table table-form">
+                    <tr>
+                        <th><label for="CEP">CEP</label></th>
+                        <td><input type="tel" class="input-cep" maxlength="" id="CEP" name="CEP" value="" /></td>
+                    </tr>
+                    </tr>
+                    <tr>
+                        <th><label for="TipoLogradouro">Tipo de logradouro</label></th>
+                        <td>
+                            <select id="TipoLogradouro" name="TipoLogradouro">
+                                <option value="8">AVENIDA</option>
+                                <option value="9">BALNEARIO</option>
+                                <option value="14">BOULEVARD</option>
+                                <option value="481">CHACARA</option>
+                                <option value="36">FAVELA</option>
+                                <option value="37">FAZENDA</option>
+                                <option value="81">RUA</option>
+                                <option value="92">SITIO</option>
+                                <option value="100">TRAVESSA</option>
+                                <option value="646">VIA EXPRESSA</option>
+                                <option value="104">VILA</option>
+                                <option value="105">VIELA</option>
+                            </select>
+                        </td>
+                    </tr>
+                    </tr>
+                    <tr>
+                        <th><label for="Endereco">Endere&ccedil;o</label></th>
+                        <td><input type="text" class="uppercase" maxlength="40" id="Endereco" name="Endereco" value="" /></td>
+                    </tr>
+                    </tr>
+                    <tr>
+                        <th><label for="EnderecoNumero">N&uacute;mero</label></th>
+                        <td><input type="tel" class="uppercase" maxlength="40" id="EnderecoNumero" name="EnderecoNumero" value="" /></td>
+                    </tr>
+                    </tr>
+                    <tr>
+                        <th><label for="ComplementoEndereco">Complemento</label></th>
+                        <td><input type="text" class="uppercase" maxlength="40" id="ComplementoEndereco" name="ComplementoEndereco" value="" /></td>
+                    </tr>
+                    </tr>
+                    <tr>
+                        <th><label for="Bairro">Bairro</label></th>
+                        <td><input type="text" class="uppercase" maxlength="40" id="Bairro" name="Bairro" value="" /></td>
+                    </tr>
+                    <tr>
+                        <th><label for="UFEndereco">UF</label></th>
+                        <td>
+                            <span class="input-group">
+                                <input type="text" id="UFEndereco" name="UFEndereco" readonly="readonly" onclick="javascript:location.hash='#DSelecaoUF'" value="" />
+                                <input type="hidden" id="CodigoUFEndereco" name="CodigoUFEndereco" value="" />
+                                <span class="input-group-btn" onclick="javascript:bnb.busca.input=document.getElementById('UFEndereco');location.hash='#DSelecaoUF'">
+                                    <a class="btn btn-default btn-busca">&nbsp;</a>
+                                </span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><label for="MunicipioEndereco">Munic&iacute;pio</label></th>
+                        <td>
+                            <span class="input-group">
+                                <input type="text" id="MunicipioEndereco" name="MunicipioEndereco" readonly="readonly" onclick="javascript:fnClickSelecionar('pesquisaMunicipio','listaMunicipio','#DSelecaoMunicipio','MunicipioEndereco')" value="" />
+                                <input type="hidden" id="CodigoMunicipioEndereco" name="CodigoMunicipioEndereco" value="" />
+                                <span class="input-group-btn" onclick="javascript:fnClickSelecionar('pesquisaMunicipio','listaMunicipio','#DSelecaoMunicipio','MunicipioEndereco')">
+                                    <a class="btn btn-default btn-busca">&nbsp;</a>
+                                </span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><label for="Telefone">Telefone fixo</label></th>
+                        <td><input type="tel" class="input-telefone" id="Telefone" name="Telefone" value="" /></td>
+                    </tr>
+
+                </table>
+                <footer>
+                    <a type="submit" class="btn btn-avancar" href="preencher9.html">
+                        Continuar
+                    </a>
+                </footer>
+
+            </form>
+        </div>
+        <!-- Final da #DFormulario -->
+        <!-- Final do conteudo -->
+        <!-- Inicio do conteudo UF-->
+
+        <div id="DSelecaoUF" class="target">
+            <p>Selecione a UF</p>
+            <p><input type="search" id="pesquisa" placeholder="Estado" /></p>
+
+            <div class="btn-menu-set" id="lista">
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF('12','AC - ACRE');">AC - ACRE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF('27','AL - ALAGOAS');">AL - ALAGOAS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF('16','AP - AMAPA');">AP - AMAPA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF('13','AM - AMAZONAS');">AM - AMAZONAS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF('29','BA - BAHIA');">BA - BAHIA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF('23','CE - CEARA');">CE - CEARA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF('53','DF - DISTRITO FEDERAL');">DF - DISTRITO FEDERAL</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF('32','ES - ESPIRITO SANTO');">ES - ESPIRITO SANTO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF('52','GO - GOIAS');">GO - GOIAS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF('21','MA - MARANHAO');">MA - MARANHAO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF('51','MT - MATO GROSSO');">MT - MATO GROSSO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF('50','MS - MATO GROSSO DO SUL');">MS - MATO GROSSO DO SUL</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF('31','MG - MINAS GERAIS');">MG - MINAS GERAIS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF('15','PA - PARA');">PA - PARA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF('25','PB - PARAIBA');">PB - PARAIBA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF('41','PR - PARANA');">PR - PARANA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF('26','PE - PERNAMBUCO');">PE - PERNAMBUCO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF('22','PI - PIAUI');">PI - PIAUI</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF('33','RJ - RIO DE JANEIRO');">RJ - RIO DE JANEIRO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF('24','RN - RIO GRANDE DO NORTE');">RN - RIO GRANDE DO NORTE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF('43','RS - RIO GRANDE DO SUL');">RS - RIO GRANDE DO SUL</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF('11','RO - RONDONIA');">RO - RONDONIA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF('14','RR - RORAIMA');">RR - RORAIMA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF('42','SC - SANTA CATARINA');">SC - SANTA CATARINA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF('35','SP - SAO PAULO');">SP - SAO PAULO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF('28','SE - SERGIPE');">SE - SERGIPE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarUF('17','TO - TOCANTINS');">TO - TOCANTINS</a>
+
+            </div>
+        </div>
+
+        <!-- Final do conteudo UF-->
+        <!-- Inicio do conteudo Município-->
+
+        <div id="DSelecaoMunicipio" class="target">
+            <p>Selecione o munic&iacute;pio</p>
+            <p><input type="search" id="pesquisaMunicipio" placeholder="Munic&iacute;pio" /></p>
+
+            <div class="btn-menu-set" id="listaMunicipio">
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(558,'ABAIARA');">ABAIARA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4337,'ACARAPE');">ACARAPE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2903,'ACARAU');">ACARAU</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(790,'ACOPIARA');">ACOPIARA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3432,'AIUABA');">AIUABA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1237,'ALCANTARAS');">ALCANTARAS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3908,'ALTANEIRA');">ALTANEIRA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1685,'ALTO SANTO');">ALTO SANTO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4236,'AMONTADA');">AMONTADA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(612,'ANTONINA DO NORTE');">ANTONINA DO NORTE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2214,'APUIARES');">APUIARES</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(923,'AQUIRAZ');">AQUIRAZ</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2672,'ARACATI');">ARACATI</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1334,'ARACOIABA');">ARACOIABA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(5104,'ARARENDA');">ARARENDA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3117,'ARARIPE');">ARARIPE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1790,'ARATUBA');">ARATUBA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3570,'ARNEIROZ');">ARNEIROZ</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2253,'ASSARE');">ASSARE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4061,'AURORA');">AURORA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2375,'BAIXIO');">BAIXIO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4338,'BANABUIU');">BANABUIU</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(165,'BARBALHA');">BARBALHA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4484,'BARREIRA');">BARREIRA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2805,'BARRO');">BARRO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4485,'BARROQUINHA');">BARROQUINHA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(725,'BATURITE');">BATURITE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3383,'BEBERIBE');">BEBERIBE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1159,'BELA CRUZ');">BELA CRUZ</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3974,'BOA VIAGEM');">BOA VIAGEM</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1786,'BREJO SANTO');">BREJO SANTO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(516,'CAMOCIM');">CAMOCIM</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1921,'CAMPOS SALES');">CAMPOS SALES</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(722,'CANINDE');">CANINDE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2367,'CAPISTRANO');">CAPISTRANO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1039,'CARIDADE');">CARIDADE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2807,'CARIRE');">CARIRE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1485,'CARIRIACU');">CARIRIACU</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3259,'CARIUS');">CARIUS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1914,'CARNAUBAL');">CARNAUBAL</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3701,'CASCAVEL');">CASCAVEL</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2365,'CATARINA');">CATARINA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(5105,'CATUNDA');">CATUNDA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(155,'CAUCAIA');">CAUCAIA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2928,'CEDRO');">CEDRO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(830,'CHAVAL');">CHAVAL</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(5106,'CHORO');">CHORO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4339,'CHOROZINHO');">CHOROZINHO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(50538,'COMUNIDADE LOCAL');">COMUNIDADE LOCAL</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1274,'COREAU');">COREAU</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1780,'CRATEUS');">CRATEUS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(638,'CRATO');">CRATO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4486,'CROATA');">CROATA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4242,'CRUZ');">CRUZ</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4487,'DEPUTADO IRAPUAN PINHEIRO');">DEPUTADO IRAPUAN PINHEIRO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4340,'ERERE');">ERERE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4341,'EUSEBIO');">EUSEBIO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(50539,'EXTERIOR');">EXTERIOR</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1462,'FARIAS BRITO');">FARIAS BRITO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4235,'FORQUILHA');">FORQUILHA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3486,'FORTALEZA');">FORTALEZA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(5111,'FORTIM');">FORTIM</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2232,'FRECHEIRINHA');">FRECHEIRINHA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(811,'GENERAL SAMPAIO');">GENERAL SAMPAIO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4342,'GRACA');">GRACA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2679,'GRANJA');">GRANJA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1342,'GRANJEIRO');">GRANJEIRO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3122,'GROAIRAS');">GROAIRAS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4343,'GUAIUBA');">GUAIUBA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1842,'GUARACIABA DO NORTE');">GUARACIABA DO NORTE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3631,'GUARAMIRANGA');">GUARAMIRANGA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2096,'HIDROLANDIA');">HIDROLANDIA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4344,'HORIZONTE');">HORIZONTE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4631,'IBARETAMA');">IBARETAMA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3805,'IBIAPINA');">IBIAPINA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4489,'IBICUITINGA');">IBICUITINGA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4245,'ICAPUI');">ICAPUI</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2465,'ICO');">ICO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(272,'IGUATU');">IGUATU</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3021,'INDEPENDENCIA');">INDEPENDENCIA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4345,'IPAPORANGA');">IPAPORANGA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(920,'IPAUMIRIM');">IPAUMIRIM</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3548,'IPU');">IPU</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1315,'IPUEIRAS');">IPUEIRAS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4025,'IRACEMA');">IRACEMA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1794,'IRAUCUBA');">IRAUCUBA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(450,'ITAICABA');">ITAICABA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(5110,'ITAITINGA');">ITAITINGA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2269,'ITAPAGE');">ITAPAGE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(958,'ITAPIPOCA');">ITAPIPOCA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2704,'ITAPIUNA');">ITAPIUNA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4233,'ITAREMA');">ITAREMA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1374,'ITATIRA');">ITATIRA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2861,'JAGUARETAMA');">JAGUARETAMA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1531,'JAGUARIBARA');">JAGUARIBARA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3310,'JAGUARIBE');">JAGUARIBE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1974,'JAGUARUANA');">JAGUARUANA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3758,'JARDIM');">JARDIM</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2405,'JATI');">JATI</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(5551,'JIJOCA DE JERICOACOARA');">JIJOCA DE JERICOACOARA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(484,'JUAZEIRO DO NORTE');">JUAZEIRO DO NORTE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3178,'JUCAS');">JUCAS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(757,'LAVRAS DA MANGABEIRA');">LAVRAS DA MANGABEIRA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3439,'LIMOEIRO DO NORTE');">LIMOEIRO DO NORTE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4346,'MADALENA');">MADALENA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4266,'MARACANAU');">MARACANAU</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1089,'MARANGUAPE');">MARANGUAPE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3760,'MARCO');">MARCO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1538,'MARTINOPOLE');">MARTINOPOLE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(202,'MASSAPE');">MASSAPE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1976,'MAURITI');">MAURITI</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(815,'MERUOCA');">MERUOCA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2536,'MILAGRES');">MILAGRES</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4239,'MILHA');">MILHA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4490,'MIRAIMA');">MIRAIMA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1223,'MISSAO VELHA');">MISSAO VELHA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3079,'MOMBACA');">MOMBACA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1758,'MONSENHOR TABOSA');">MONSENHOR TABOSA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3533,'MORADA NOVA');">MORADA NOVA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2202,'MORAUJO');">MORAUJO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3988,'MORRINHOS');">MORRINHOS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2728,'MUCAMBO');">MUCAMBO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(488,'MULUNGU');">MULUNGU</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3078,'NOVA OLINDA');">NOVA OLINDA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(909,'NOVA RUSSAS');">NOVA RUSSAS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3531,'NOVO ORIENTE');">NOVO ORIENTE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4347,'OCARA');">OCARA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1348,'OROS');">OROS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3775,'PACAJUS');">PACAJUS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1558,'PACATUBA');">PACATUBA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(227,'PACOTI');">PACOTI</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1992,'PACUJA');">PACUJA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(763,'PALHANO');">PALHANO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2420,'PALMACIA');">PALMACIA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1100,'PARACURU');">PARACURU</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4238,'PARAIPABA');">PARAIPABA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2878,'PARAMBU');">PARAMBU</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1569,'PARAMOTI');">PARAMOTI</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3404,'PEDRA BRANCA');">PEDRA BRANCA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2062,'PENAFORTE');">PENAFORTE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3844,'PENTECOSTE');">PENTECOSTE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2496,'PEREIRO');">PEREIRO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4348,'PINDORETAMA');">PINDORETAMA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(317,'PIQUET CARNEIRO');">PIQUET CARNEIRO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4349,'PIRES FERREIRA');">PIRES FERREIRA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3088,'PORANGA');">PORANGA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(913,'PORTEIRAS');">PORTEIRAS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3543,'POTENGI');">POTENGI</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4350,'POTIRETAMA');">POTIRETAMA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4351,'QUITERIANOPOLIS');">QUITERIANOPOLIS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1410,'QUIXADA');">QUIXADA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4247,'QUIXELO');">QUIXELO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4071,'QUIXERAMOBIM');">QUIXERAMOBIM</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1850,'QUIXERE');">QUIXERE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(268,'REDENCAO');">REDENCAO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2065,'RERIUTABA');">RERIUTABA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(984,'RUSSAS');">RUSSAS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2445,'SABOEIRO');">SABOEIRO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4463,'SALITRE');">SALITRE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1560,'SANTA QUITERIA');">SANTA QUITERIA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1117,'SANTANA DO ACARAU');">SANTANA DO ACARAU</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2885,'SANTANA DO CARIRI');">SANTANA DO CARIRI</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3348,'SAO BENEDITO');">SAO BENEDITO</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1861,'SAO GONCALO DO AMARANTE');">SAO GONCALO DO AMARANTE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3654,'SAO JOAO DO JAGUARIBE');">SAO JOAO DO JAGUARIBE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2312,'SAO LUIS DO CURU');">SAO LUIS DO CURU</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(246,'SENADOR POMPEU');">SENADOR POMPEU</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2910,'SENADOR SA');">SENADOR SA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(872,'SOBRAL');">SOBRAL</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3481,'SOLONOPOLE');">SOLONOPOLE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(994,'TABULEIRO DO NORTE');">TABULEIRO DO NORTE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3656,'TAMBORIL');">TAMBORIL</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4352,'TARRAFAS');">TARRAFAS</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1415,'TAUA');">TAUA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4353,'TEJUCUOCA');">TEJUCUOCA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(278,'TIANGUA');">TIANGUA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(926,'TRAIRI');">TRAIRI</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4354,'TURURU');">TURURU</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1135,'UBAJARA');">UBAJARA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(1693,'UMARI');">UMARI</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4234,'UMIRIM');">UMIRIM</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2218,'URUBURETAMA');">URUBURETAMA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2652,'URUOCA');">URUOCA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(4237,'VARJOTA');">VARJOTA</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(2753,'VARZEA ALEGRE');">VARZEA ALEGRE</a>
+
+
+                <a class="btn btn-menu item" onclick="bnb.callBack();fnSelecionarMunicipio(3422,'VICOSA DO CEARA');">VICOSA DO CEARA</a>
+
+            </div>
+        </div>
+
+        <!-- Final do conteudo Município-->
+
+    </section>
+
+    <script type="text/javascript" charset="utf-8" src="js/scripts.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/cad_cnt_dig_08_m.min.js"></script>
+
+</body>
+</html>
